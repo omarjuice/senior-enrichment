@@ -72,6 +72,7 @@ DELETE
   * have profile info including:
     * name - not empty or null
     * imageUrl - with a default value
+    * address - not empty or null
     * description - extremely large text
   * can have many students assigned (may have none)
 
