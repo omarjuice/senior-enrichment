@@ -63,14 +63,15 @@ DELETE
     * firstName - not empty or null
     * lastName - not empty or null
     * email - not empty or null; valid email
+    * imageUrl - with a default value
     * gpa - decimal between 0.0 and 4.0
   * must have a virtual 'name' field which is the concatenation of firstName and lastName
-  * must be assigned to a campus
+  * may be assigned to at-most one campus
 
 - Campuses
   * have profile info including:
     * name - not empty or null
-    * imageUrl - default value
+    * imageUrl - with a default value
     * description - extremely large text
   * can have many students assigned (may have none)
 
