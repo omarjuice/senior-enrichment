@@ -13,33 +13,35 @@
     "skeleton"
   ],
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "chalk": "^2.4.1",
     "axios": "^0.18.0",
-    "body-parser": "^1.15.2",
-    "chalk": "^1.1.3",
     "express": "^4.14.0",
-    "pg": "^6.1.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-redux": "^4.4.5",
-    "react-router-dom": "^4.1.1",
-    "redux": "^3.6.0",
+    "pg": "^7.4.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.1.0",
-    "sequelize": "^4.7.4"
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.37.8"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
     "eslint": "^4.19.1",
     "eslint-config-fullstack": "^5.0.0",
     "eslint-plugin-react": "^7.8.2",
     "volleyball": "^1.4.1",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
   }
 }
