@@ -65,7 +65,6 @@ DELETE
     * email - not empty or null; valid email
     * imageUrl - with a default value
     * gpa - decimal between 0.0 and 4.0
-  * must have a virtual 'name' field which is the concatenation of firstName and lastName
   * may be assigned to at-most one campus
 
 - Campuses
