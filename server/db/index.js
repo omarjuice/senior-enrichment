@@ -1,13 +1,21 @@
 'use strict'
-const chalk = require('chalk');
-const Sequelize = require('sequelize');
-const pkg = require('../../package.json');
 
-console.log(chalk.yellow("Opening database connection"));
+const db = require('./database')
 
-// create the database instance that can be used in other database files
-module.exports = new Sequelize(`postgres://localhost:5432/${pkg.name}`, {
-  logging: false, // so we don't see all the SQL query made
-});
+// The purpose of this module is to bring your Sequelize instance (`db`) together
+// with your models (which you should define in separate modules in this directory).
+// Example:
+//
+// const Puppy = require('./puppy')
+// const Owner = require('./owner')
 
-// don't forget to run our models files and make all associations for our Sequelize objects (if you do it here consider circular references)
+// After you've required all of your models into this module, you should establish
+// associations (https://sequelize-guides.netlify.com/association-types/) between them here as well!
+// Example:
+//
+// Puppy.belongsTo(Owner)
+
+module.exports = {
+  // Include your models in this exports object as well!
+  db
+}
