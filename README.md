@@ -1,79 +1,39 @@
 # Senior Enrichment Project
 
-Make a thing!
-
 ## Getting started
 
 1. Fork and clone this repo
 2. `npm install`
-3. Check out the mock-view in the `wireframes` folder
-4. Start the build process and your application with: `npm run start:dev`
-5. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
+3. Read the rest of this `README.md` carefully - it contains the requirements for the project and the grading rubric that will be used to assess it
+4. Check out the mock-view in the `wireframes` folder to get an idea of what the project _could_ look like
+5. Start the build process and your application with: `npm run start:dev`. If you using Windows, you may need to execute `npm run start-server` and `npm run build-watch` separately (in their own terminal tabs).
+6. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
+7. Check out the starting seed file in `seed.js` - you can run it by executing `npm run seed`
 
-## Requirements
+## Details
 
 ### The Premise
 
-You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. Create a RESTful web platform that allows you to manage your students and campuses. Before getting started, please carefully review the expectations as outlined in the [grading rubric](https://docs.google.com/document/d/1X5FekpyZqAiTmSU0ipAAHTGyIoInC-m-1a75YkMcejM).
+You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. Create a RESTful web platform that allows you to manage your students and campuses. Before getting started, please carefully review the expectations as outlined below.
 
 ### The tools
 
-Use at least Sequelize, Express and React when creating this app. This app is small, so just using React is reasonable, but note that without practicing with more frontend libraries you will have a steep learning curve in senior phase. If you are going forward with ***just React*** you will benefit from **deleting all references to React-Redux, Redux and React-Router** (so you don't confuse yourself with trying to use something in half your files and not the other half). 
+For this project, you must use Express to handle HTTP requests and Sequelize to interface with your database. Likewise, you must use React, Redux and React-Redux on the front-end. This means that all important state (i.e. students and campuses) must be managed by the Redux store (unimportant state, like form data, may be managed by stateful React components). Components that display student/campus data should therefore be connected to the Redux store. If you perform side-effects (like AJAX requests), you should encapsulate them in thunks.
 
-If you feel ready, start by incorporating React-Router, Redux and React-Redux (we helped get you started with this!)! If you go this route, it will be great practice and will prepare you **well** for senior phase.
+### Requirements + Rubric
+
+For the requirements and rubric, refer to the following two files:
+
+* `REQUIREMENTS.md` - contains the functional requirements of the project
+* `RUBRIC.md` - contains the grading rubric for additional factors, as well as the formula for calculating the total score
+
+Make sure to read them carefully!
 
 ### Views and Functionality
 
-Take a look in the wireframes folder as a reference for how your front-end could look. Of course, you are encouraged to be creative and flex your own design muscles, but the wireframes should function as a good baseline/inspirational resource.
+Take a look in the wireframes folder as a reference for how your front-end _could_ look. Of course, you are encouraged to be creative and flex your own design muscles, but the wireframes should function as a good baseline/inspirational resource. Either way, the most important part of the project is that it works - **design/appearance is extra-credit**. If there ever appears to be a conflict between the wireframes and the rubric/requirements below, **go with the letter of the rubric/requirements.**
 
-Once again, please carefully review the user story expectations in the [rubric](https://docs.google.com/document/d/1X5FekpyZqAiTmSU0ipAAHTGyIoInC-m-1a75YkMcejM), as completing the user stories is the most heavily weighted part of the project.
-
-### Routes
-
-```
-GET
-- all campuses
-- a campus by id
-- all students
-- a student by id
-```
-
-```
-POST
-- new campus
-- new student
-```
-
-```
-PUT
-- updated student info for one student
-- updated campus info for one campus
-```
-
-```
-DELETE
-- a campus
-- a student
-```
-
-### DB Design
-
-- Students
-  * have profile info including:
-    * firstName - not empty or null
-    * lastName - not empty or null
-    * email - not empty or null; valid email
-    * imageUrl - with a default value
-    * gpa - decimal between 0.0 and 4.0
-  * may be assigned to at-most one campus
-
-- Campuses
-  * have profile info including:
-    * name - not empty or null
-    * imageUrl - with a default value
-    * address - not empty or null
-    * description - extremely large text
-  * can have many students assigned (may have none)
+## Other Important Info
 
 ### How to test functionality without a frontend
 - GET: use your browser
@@ -91,9 +51,8 @@ Please submit a 5 to 10 minute screencast of a walk-through of the functionality
 Once you've recorded your screencast, please *upload it to YouTube as an unlisted video*. Email `academics@fullstackacademy.com` with the title `Senior Enrichment Submission: [Your Name]` and include your repo link and YouTube recording link. This will aid us in evaluating your submission.
 
 ## Evaluation
-[Rubric](https://docs.google.com/document/d/1X5FekpyZqAiTmSU0ipAAHTGyIoInC-m-1a75YkMcejM)
 
-- User stories (60%)
+- Requirements score (60%)
 - Rubric score (40%)
 - Extra credit (15% max)
 

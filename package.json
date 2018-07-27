@@ -4,8 +4,11 @@
   "description": "A review time project",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack -w & nodemon main.js -e html,js,css --ignore public",
-    "start": "node main"
+    "start:dev": "npm run build-watch & npm run start-server",
+    "start-server": "nodemon main.js -e html,js,css --ignore public",
+    "build-watch": "webpack -w",
+    "start": "echo 'Running server for production - developers, use npm run start:dev for development' && node main",
+    "seed": "node seed.js"
   },
   "keywords": [
     "react",
@@ -36,11 +39,11 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.11",
-    "style-loader": "^0.21.0",
     "eslint": "^4.19.1",
     "eslint-config-fullstack": "^5.0.0",
     "eslint-plugin-react": "^7.8.2",
-    "volleyball": "^1.4.1",
+    "style-loader": "^0.21.0",
+    "volleyball": "^1.5.1",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
   }
