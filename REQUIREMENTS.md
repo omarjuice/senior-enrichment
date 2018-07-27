@@ -62,7 +62,7 @@ Congrats! You have completed your first vertical slice! Make sure to `commit -m 
 - [ ] Clicking on the name of a student in the single-campus view should navigate to show that student in the single-student view
 - [ ] Clicking on the name of a campus in the single-student view should navigate to show that campus in the single-campus view
 
-Congrats! You have completed your second vertical slice! Make sure to `commit -m "Feature: Get All and Single Student"` before moving on!
+Congrats! You have completed your second vertical slice! Make sure to `commit -m "Feature: Get All Campuses and Students"` before moving on!
 
 </details>
 
