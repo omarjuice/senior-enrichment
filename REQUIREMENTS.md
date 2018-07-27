@@ -2,9 +2,9 @@
 
 The requirements below are broken into separate **tiers**, which model the way we **recommend you approach the project**. That is, we recommend you complete (or mostly complete) the requirements in Tier 1 before moving on to Tier 2, and so on.
 
-### Tier 1: Campuses and Students (25%)
+### Tier 1: All Campuses and Students (25%)
 
-Objective: As a User I want to see all Campuses and navigate to a single campus view
+<details>
 
 #### Backend
 
@@ -31,10 +31,15 @@ Objective: As a User I want to see all Campuses and navigate to a single campus 
 - [ ] Write a component to display a list of all students (just their names)
 - [ ] Display the all-campuses component when the url matches `/campuses`
 - [ ] Display the all-students component when the url matches `/students`
+- [ ] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
 Congrats! You have completed your first vertical slice! Make sure to `commit -m "Feature: Get All and Single Campus"` before moving on!
 
+</details>
+
 ### Tier 2: Single Student and Single Campus (25%)
+
+<details>
 
 #### Backend
 
@@ -59,7 +64,11 @@ Congrats! You have completed your first vertical slice! Make sure to `commit -m 
 
 Congrats! You have completed your second vertical slice! Make sure to `commit -m "Feature: Get All and Single Student"` before moving on!
 
+</details>
+
 ### Tier 3: Adding a Campus and Adding a Student (25%)
+
+<details>
 
 #### Backend
 
@@ -82,7 +91,11 @@ Congrats! You have completed your second vertical slice! Make sure to `commit -m
 
 Congrats! You have completed your third vertical slice! Make sure to `commit -m "Feature: Add Campus and Student"` before moving on!
 
+</details>
+
 ### Tier 4: Removing a Campus and Removing a Student (25%)
+
+<details>
 
 #### Backend
 
@@ -103,9 +116,11 @@ Congrats! You have completed your third vertical slice! Make sure to `commit -m 
 
 Congrats! You have completed your fourth vertical slice! Make sure to `commit -m "Feature: Remove Campus and Student"` before moving on!
 
+</details>
+
 ### Bonus Tier 1: Finishing Touches (5% EC)
 
-<detail>
+<details>
 
 - [ ] If a user attempts to add a new student or campus without a required field, a helpful message should be displayed
 - [ ] If a user attempts to access a page that doesn't exist (ex. `/cafeteria`), a helpful "not found" message should be displayed
@@ -113,11 +128,11 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 - [ ] Whenever a component needs to wait for data to load from the server, a "loading" message should be displayed until the data is available
 - [ ] Overall, the app is spectacularly styled and visually stunning
 
-</detail>
+</details>
 
 ### Bonus Tier 2: Updating a Campus and Updating a Student (10% EC)
 
-<detail>
+<details>
 
 #### Backend
 
@@ -138,4 +153,4 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
   - [ ] Make an AJAX request that causes that student to be updated in the database
   - [ ] Update the student in the current view without needing to refresh the page
 
-</detail>
+</details>
