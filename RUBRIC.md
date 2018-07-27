@@ -6,7 +6,7 @@
 | 1 | Criteria met inconsistently
 | 2 | Criteria met consistently
 
-### Backend (6/40)
+### Backend (6/20)
 
 | Criteria | Score | Comments |
 | ------------- |-------------| -----|
