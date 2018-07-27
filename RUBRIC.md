@@ -30,21 +30,34 @@
 | Uses meaningful/self-documenting variable/function names | -/2 | |
 | Does not contain blocks of commented out code (except for documentation) | -/2 | |
 
+### Deductions
+
+Points may be deducted if you are unable to complete a requirement without full direction from an instructor or a fellow. Points may also be deducted for any "hacks" or solutions to problems that do not properly employ the tools at hand (ex. directly modifying the DOM instead of allowing React to modify it for you). Any deductions will be documented below:
+
+______
+
 ## Comments
 
 ## Evaluation
 
 - Requirements score (57 points total, weighted at 60% of total grade)
 - Rubric score (20 points total, weighted at 40% of total grade)
-- Extra credit (15 points total, for additional 15% max)
+- Extra credit (15 points total, for an additional 15% max)
+
+RAW REQUIREMENT SCORE: __
+RAW RUBRIC SCORE: __
+RAW EC SCORE: __
+DEDUCTIONS: __
+
+TOTAL: __
 
 ```javascript
-const getTotal = (rawRequirementScore, rawRubricScore, rawExtraCredit) => {
+const getTotal = (rawRequirementScore, rawRubricScore, rawExtraCredit, deductions) => {
   const totalRequirementScore = ((rawRequirementScore/57) * 100) * 0.6
   const totalRubricScore = ((rawRubricScore/20) * 100) * 0.4
   const totalExtraCredit = ((rawExtraCredit/15) * 100) * 0.15
 
-  const total = totalRequirementScore + totalRubricScore + totalExtraCredit
+  const total = totalRequirementScore + totalRubricScore + totalExtraCredit - deductions
   return total
 }
 ```
