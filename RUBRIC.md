@@ -1,6 +1,7 @@
 ## Rubric
 
 | Score | Meaning
+| ------------- |-------------|
 | 0 | Critera not met
 | 1 | Criteria met inconsistently
 | 2 | Criteria met consistently
@@ -38,18 +39,20 @@ ______
 
 ## Comments
 
+_Comments from your instructor or fellow will go here_
+
 ## Evaluation
 
 - Requirements score (57 points total, weighted at 60% of total grade)
 - Rubric score (20 points total, weighted at 40% of total grade)
 - Extra credit (15 points total, for an additional 15% max)
 
-RAW REQUIREMENT SCORE: __
-RAW RUBRIC SCORE: __
-RAW EC SCORE: __
-DEDUCTIONS: __
+- RAW REQUIREMENT SCORE: __
+- RAW RUBRIC SCORE: __
+- RAW EC SCORE: __
+- DEDUCTIONS: __
 
-TOTAL: __
+- TOTAL: __
 
 ```javascript
 const getTotal = (rawRequirementScore, rawRubricScore, rawExtraCredit, deductions) => {
