@@ -2,7 +2,7 @@
 
 The requirements below are broken into separate **tiers**, which model the way we **recommend you approach the project**. That is, we recommend you complete (or mostly complete) the requirements in Tier 1 before moving on to Tier 2, and so on.
 
-### Tier 1: All Campuses and Students (25%)
+### Tier 1: All Campuses and Students (21/57)
 
 <details>
 
@@ -37,7 +37,7 @@ Congrats! You have completed your first vertical slice! Make sure to `commit -m 
 
 </details>
 
-### Tier 2: Single Student and Single Campus (25%)
+### Tier 2: Single Student and Single Campus (14/57)
 
 <details>
 
@@ -66,7 +66,7 @@ Congrats! You have completed your second vertical slice! Make sure to `commit -m
 
 </details>
 
-### Tier 3: Adding a Campus and Adding a Student (25%)
+### Tier 3: Adding a Campus and Adding a Student (12/57)
 
 <details>
 
@@ -93,7 +93,7 @@ Congrats! You have completed your third vertical slice! Make sure to `commit -m 
 
 </details>
 
-### Tier 4: Removing a Campus and Removing a Student (25%)
+### Tier 4: Removing a Campus and Removing a Student (10/57)
 
 <details>
 
@@ -118,7 +118,7 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 
 </details>
 
-### Bonus Tier 1: Finishing Touches (5% EC)
+### Bonus Tier 1: Finishing Touches (5/15 EC)
 
 <details>
 
@@ -130,7 +130,7 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 
 </details>
 
-### Bonus Tier 2: Updating a Campus and Updating a Student (10% EC)
+### Bonus Tier 2: Updating a Campus and Updating a Student (10/15 EC)
 
 <details>
 
@@ -143,13 +143,13 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 
 - [ ] Write a component to display a form updating _at least_ a campus's name and address
 - [ ] Display this component as part of the single-campus view
-- [ ] Submitting the form with a valid name/address should:
+- Submitting the form with a valid name/address should:
   - [ ] Make an AJAX request that causes that campus to be updated in the database
   - [ ] Update the campus in the current view without needing to refresh the page
 
 - [ ] Write a component to display a form updating _at least_ a student's first and last names, and email
 - [ ] Display this component as part of the single-student view
-- [ ] Submitting the form with a valid name/address should:
+- Submitting the form with a valid name/address should:
   - [ ] Make an AJAX request that causes that student to be updated in the database
   - [ ] Update the student in the current view without needing to refresh the page
 

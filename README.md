@@ -20,14 +20,18 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 
 For this project, you must use Express to handle HTTP requests and Sequelize to interface with your database. Likewise, you must use React, Redux and React-Redux on the front-end. This means that all important state (i.e. students and campuses) must be managed by the Redux store (unimportant state, like form data, may be managed by stateful React components). Components that display student/campus data should therefore be connected to the Redux store. If you perform side-effects (like AJAX requests), you should encapsulate them in thunks.
 
-### Views and Functionality
-
-Take a look in the wireframes folder as a reference for how your front-end _could_ look. Of course, you are encouraged to be creative and flex your own design muscles, but the wireframes should function as a good baseline/inspirational resource. Either way, the most important part of the project is that it works - **design/appearance is extra-credit**. If there ever appears to be a conflict between the wireframes and the rubric/requirements below, **go with the letter of the rubric/requirements.**
-
 ### Requirements + Rubric
+
+For the requirements and rubric, refer to the following two files:
 
 * `REQUIREMENTS.md` - contains the functional requirements of the project
 * `RUBRIC.md` - contains the grading rubric for additional factors, as well as the formula for calculating the total score
+
+Make sure to read them carefully!
+
+### Views and Functionality
+
+Take a look in the wireframes folder as a reference for how your front-end _could_ look. Of course, you are encouraged to be creative and flex your own design muscles, but the wireframes should function as a good baseline/inspirational resource. Either way, the most important part of the project is that it works - **design/appearance is extra-credit**. If there ever appears to be a conflict between the wireframes and the rubric/requirements below, **go with the letter of the rubric/requirements.**
 
 ## Other Important Info
 
@@ -48,7 +52,7 @@ Once you've recorded your screencast, please *upload it to YouTube as an unliste
 
 ## Evaluation
 
-- User stories (60%)
+- Requirements score (60%)
 - Rubric score (40%)
 - Extra credit (15% max)
 
