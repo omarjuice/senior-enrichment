@@ -2,7 +2,7 @@
 
 | Score | Meaning
 | ------------- |-------------|
-| 0 | Critera not met
+| 0 | Criteria not met
 | 1 | Criteria met inconsistently
 | 2 | Criteria met consistently
 
@@ -22,10 +22,11 @@
 | Avoids side effects/mutations in reducers and in renders | -/2 | |
 | Takes advantage of components to enforce modularity/separation of concerns | -/2 | |
 
-### Code Cleanliness/Maintainability (8/20)
+### Code Cleanliness/Maintainability (10/22)
 
 | Criteria | Score | Comments |
 | ------------- |-------------| -----|
+| Frequent Git commits with descriptive messages (at least once per tier) | -/2 | |
 | Formatting (indentation, whitespace, etc) is consistent | -/2 | |
 | No unused/unnecessary code | -/2 | |
 | Uses meaningful/self-documenting variable/function names | -/2 | |
@@ -44,7 +45,7 @@ _Comments from your instructor or fellow will go here_
 ## Evaluation
 
 - Requirements score (57 points total, weighted at 60% of total grade)
-- Rubric score (20 points total, weighted at 40% of total grade)
+- Rubric score (22 points total, weighted at 40% of total grade)
 - Extra credit (15 points total, for an additional 15% max)
 
 - RAW REQUIREMENT SCORE: __
@@ -57,7 +58,7 @@ _Comments from your instructor or fellow will go here_
 ```javascript
 const getTotal = (rawRequirementScore, rawRubricScore, rawExtraCredit, deductions) => {
   const totalRequirementScore = ((rawRequirementScore/57) * 100) * 0.6
-  const totalRubricScore = ((rawRubricScore/20) * 100) * 0.4
+  const totalRubricScore = ((rawRubricScore/22) * 100) * 0.4
   const totalExtraCredit = ((rawExtraCredit/15) * 100) * 0.15
 
   const total = totalRequirementScore + totalRubricScore + totalExtraCredit - deductions
