@@ -33,7 +33,7 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [ ] Display the all-students component when the url matches `/students`
 - [ ] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
-Congrats! You have completed your first vertical slice! Be sure to `commit -m "Feature: Get All Campuses and Students"` before moving on (see `RUBRIC.md` - points are awarded/deducted for a proper git workflow)!
+Congrats! You have completed your first vertical slice! Make sure to `commit -m "Feature: Get All Campuses and Students"` before moving on (see `RUBRIC.md` - points are awarded/deducted for a proper git workflow)!
 
 </details>
 
