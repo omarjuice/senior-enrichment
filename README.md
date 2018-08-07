@@ -52,7 +52,7 @@ Once you've recorded your screencast, please *upload it to YouTube as an unliste
 
 ## Evaluation
 
-- Requirements score (60%)
-- Rubric score (40%)
+- Requirements score (75%)
+- Rubric score (25%)
 - Extra credit (15% max)
 
