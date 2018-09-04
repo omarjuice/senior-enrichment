@@ -6,7 +6,7 @@
 | 1 | Criteria met inconsistently
 | 2 | Criteria met consistently
 
-### Backend (6/20)
+### Backend (6/22)
 
 | Criteria | Score | Comments |
 | ------------- |-------------| -----|
@@ -14,7 +14,7 @@
 | Properly manages control flow in routes (i.e. does not send more than one response for the same request) | -/2 | |
 | Selects appropriate data types for database columns | -/2 | |
 
-### Frontend (6/20)
+### Frontend (6/22)
 
 | Criteria | Score | Comments |
 | ------------- |-------------| -----|
