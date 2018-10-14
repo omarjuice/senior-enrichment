@@ -121,7 +121,7 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 
 </details>
 
-### Bonus Tier 1: Finishing Touches (5/15 EC)
+### Bonus Tier 1: Finishing Touches (6/16 EC)
 
 <details>
 
@@ -129,11 +129,12 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 - [ ] If a user attempts to access a page that doesn't exist (ex. `/cafeteria`), a helpful "not found" message should be displayed
 - [ ] If a user attempts to view a student/campus that doesn't exist, a helpful message should be displayed
 - [ ] Whenever a component needs to wait for data to load from the server, a "loading" message should be displayed until the data is available
+- [ ] Has a working `seed` file, that seeds the db with complete student and campus instances.
 - [ ] Overall, the app is spectacularly styled and visually stunning
 
 </details>
 
-### Bonus Tier 2: Updating a Campus and Updating a Student (10/15 EC)
+### Bonus Tier 2: Updating a Campus and Updating a Student (10/16 EC)
 
 <details>
 
