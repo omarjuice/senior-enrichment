@@ -59,7 +59,7 @@ _Comments from your instructor or fellow will go here_
 const getTotal = (rawRequirementScore, rawRubricScore, rawExtraCredit, deductions) => {
   const totalRequirementScore = ((rawRequirementScore/57) * 100) * 0.75
   const totalRubricScore = ((rawRubricScore/22) * 100) * 0.25
-  const totalExtraCredit = ((rawExtraCredit/15) * 100) * 0.15
+  const totalExtraCredit = ((rawExtraCredit/16) * 100) * 0.15
 
   const total = totalRequirementScore + totalRubricScore + totalExtraCredit - deductions
   return total
