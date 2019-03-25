@@ -46,6 +46,7 @@
     "eslint-config-fullstack": "^5.0.0",
     "eslint-plugin-react": "^7.8.2",
     "expect": "^24.5.0",
+    "faker": "^4.1.0",
     "mocha": "^6.0.2",
     "style-loader": "^0.21.0",
     "supertest": "^4.0.2",

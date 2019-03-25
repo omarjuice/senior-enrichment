@@ -4,9 +4,10 @@ const db = require('./database')
 const Campus = db.define('campus', {
     name: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: true,
         }
     },
     imageUrl: {
