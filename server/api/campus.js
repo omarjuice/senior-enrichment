@@ -24,11 +24,26 @@ router.post('/', ({ body }, res, next) => {
     Campus.create(body, {
         returning: true
     }).then(campus => {
-        res.send(campus)
+        res.status(201).send(campus)
     }).catch(() => {
         const err = new Error('Invalid submission')
         err.status = 400
         next(err)
     })
+})
+router.delete('/:id', ({ params: { id } }, res, next) => {
+    Campus.destroy({
+        where: {
+            id: Number(id)
+        }
+    })
+        .then(() => {
+            res.status(204).send()
+        }).catch((e) => {
+            console.log(e);
+            const err = new Error('BAD')
+            err.status = 400
+            next(err)
+        })
 })
 module.exports = router

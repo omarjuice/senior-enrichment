@@ -28,10 +28,25 @@ router.post('/', ({ body }, res, next) => {
         returning: true
     })
         .then(student => {
-            res.send(student)
+            res.status(201).send(student)
         })
         .catch(() => {
             const err = new Error('Invalid submission')
+            err.status = 400
+            next(err)
+        })
+})
+router.delete('/:id', ({ params: { id } }, res, next) => {
+    Student.destroy({
+        where: {
+            id: Number(id)
+        }
+    })
+        .then(() => {
+            res.status(204).send()
+        }).catch((e) => {
+            console.log(e);
+            const err = new Error('BAD')
             err.status = 400
             next(err)
         })

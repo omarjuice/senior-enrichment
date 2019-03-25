@@ -152,7 +152,7 @@ describe('POST /campuses', () => {
         request(app)
             .post('/api/campuses')
             .send(newCampus)
-            .expect(200)
+            .expect(201)
             .expect(({ body: createdCampus }) => {
                 expect(createdCampus).toMatchObject({
                     ...newCampus,
@@ -193,7 +193,7 @@ describe('POST /students', () => {
         request(app)
             .post('/api/students')
             .send(newStudent)
-            .expect(200)
+            .expect(201)
             .expect(({ body: createdStudent }) => {
                 expect(createdStudent).toMatchObject({
                     ...newStudent,
@@ -212,6 +212,24 @@ describe('POST /students', () => {
             .post('/api/students')
             .send(newStudent)
             .expect(400)
+            .end(done)
+    })
+})
+describe('DELETE campus', () => {
+    it('Should delete a campus', done => {
+        const id = 2
+        request(app)
+            .delete('/api/campuses/' + id)
+            .expect(204)
+            .end(done)
+    })
+})
+describe('DELETE student', () => {
+    it('should delete a student', done => {
+        const id = 3
+        request(app)
+            .delete('/api/students/' + id)
+            .expect(204)
             .end(done)
     })
 })
