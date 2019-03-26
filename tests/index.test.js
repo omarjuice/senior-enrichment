@@ -46,7 +46,7 @@ describe('GET /campuses', () => {
             .get('/api/campuses')
             .expect(200)
             .expect(({ body: { offset, data } }) => {
-                expect(offset).toBe(seedCampuses.length)
+                expect(offset).toBe(null)
                 expect(data.length).toBe(3)
                 for (let campus of data) {
                     expect(campus).toMatchObject(campusSchema)
@@ -61,7 +61,7 @@ describe('GET /campuses', () => {
             })
             .expect(200)
             .expect(({ body: { offset, data } }) => {
-                expect(offset).toBe(seedCampuses.length)
+                expect(offset).toBe(null)
                 expect(data.length).toBe(1)
             }).end(done)
     })

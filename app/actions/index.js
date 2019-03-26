@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {
     CAMPUSES,
     STUDENTS,
@@ -27,9 +26,9 @@ const actions = {
         isLoading
     })
 }
-export const getCampuses = () => dispatch => {
+export const getCampuses = (offset = 0, limit = 5) => (dispatch, _, { axios }) => {
     dispatch(actions.loading(true))
-    axios.get('/api/campuses')
+    axios.get(`/api/campuses?offset=${offset}&limit=${limit}`)
         .then(({ data }) => {
             dispatch(actions.campuses(data))
             dispatch(actions.loading(false))
@@ -39,14 +38,13 @@ export const getCampuses = () => dispatch => {
             dispatch(actions.loading(false))
         })
 }
-export const getStudents = () => dispatch => {
+export const getStudents = (offset = 0, limit = 5) => (dispatch, _, { axios }) => {
     dispatch(actions.loading(true))
-    axios.get('/api/students')
+    axios.get(`/api/students?offset=${offset}&limit=${limit}`)
         .then(({ data }) => {
             dispatch(actions.students(data))
             dispatch(actions.loading(false))
         }).catch(() => {
-            console.log('ERROR');
             dispatch(actions.error(true, 'Could not get the students'))
             dispatch(actions.loading(false))
         })

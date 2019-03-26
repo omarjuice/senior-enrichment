@@ -26,8 +26,8 @@ class CampusCard extends Component {
                     </div>
                 </div>
                 <style jsx>{`
-                    .card-content{
-                        max-height: 30vh;
+                    .card{
+                        height: 70vh;
                         overflow: scroll
                     }
                     `}</style>

@@ -28,7 +28,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case CAMPUSES:
-            return { ...state, offset: action.offset, data: action.data };
+            return { ...state, offset: action.offset, data: [...state.data, ...action.data] };
         default:
             return state
     }

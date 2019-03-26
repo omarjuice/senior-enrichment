@@ -9,7 +9,7 @@ router.get('/', (
         limit
     }).then(data => {
         res.send({
-            offset: Number(offset) + data.length,
+            offset: data.length === limit ? Number(offset) + data.length : null,
             data
         })
     })
