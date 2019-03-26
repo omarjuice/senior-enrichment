@@ -1,15 +1,11 @@
-// `combineReducers` is not currently being used...but it should!
-// When you're ready to use it, un-comment the line below!
+import { combineReducers } from 'redux'
+import { reducer as form } from 'redux-form'
+import campuses from './campus'
+import students from './student'
 
-// import {combineReducers} from 'redux'
+export default combineReducers({
+  campuses,
+  students,
+  form
+})
 
-const initialState = {}
-
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
-
-export default rootReducer
