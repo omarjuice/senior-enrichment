@@ -5,8 +5,6 @@ class Welcome extends Component {
         return (
             <div>
                 Welcome!
-                <Link to="/students">Students</Link>
-                <Link to="/campuses">Campuses</Link>
             </div>
         );
     }

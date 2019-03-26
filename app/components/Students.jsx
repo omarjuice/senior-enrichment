@@ -8,13 +8,11 @@ class Students extends Component {
     render() {
         const { students } = this.props
         return (
-            <div className="container">
-                <div className="columns is-multiline is-tablet">
-                    {students.data.map(({ id, ...student }) => {
-                        console.log(id);
-                        return <StudentCard key={id} {...student} />
-                    })}
-                </div>
+            <div className="columns is-multiline is-tablet">
+                {students.data.map(({ id, ...student }) => {
+                    console.log(id);
+                    return <StudentCard key={id} {...student} />
+                })}
             </div>
         );
     }
