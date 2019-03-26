@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import StudentCard from './StudentCard';
+import { getStudents } from '../actions'
 class Students extends Component {
     componentDidMount() {
-        console.log(this.props.students)
+        this.props.getStudents()
     }
     render() {
         const { students } = this.props
         return (
             <div className="columns is-multiline is-tablet">
                 {students.data.map(student => {
-                    console.log(id);
                     return <StudentCard key={student.id} {...student} />
                 })}
             </div>
@@ -20,4 +20,4 @@ class Students extends Component {
 
 const mapStateToProps = ({ students }) => ({ students })
 
-export default connect(mapStateToProps, null)(Students);
+export default connect(mapStateToProps, { getStudents })(Students);

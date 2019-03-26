@@ -7,10 +7,10 @@ router.get('/', (
     Student.findAll({
         offset,
         limit
-    }).then(students => {
+    }).then(data => {
         res.send({
-            offset: Number(offset) + students.length,
-            students
+            offset: Number(offset) + data.length,
+            data
         })
     })
 })

@@ -45,10 +45,10 @@ describe('GET /campuses', () => {
         request(app)
             .get('/api/campuses')
             .expect(200)
-            .expect(({ body: { offset, campuses } }) => {
+            .expect(({ body: { offset, data } }) => {
                 expect(offset).toBe(seedCampuses.length)
-                expect(campuses.length).toBe(3)
-                for (let campus of campuses) {
+                expect(data.length).toBe(3)
+                for (let campus of data) {
                     expect(campus).toMatchObject(campusSchema)
                 }
             }).end(done)
@@ -60,9 +60,9 @@ describe('GET /campuses', () => {
                 offset: cursor
             })
             .expect(200)
-            .expect(({ body: { offset, campuses } }) => {
+            .expect(({ body: { offset, data } }) => {
                 expect(offset).toBe(seedCampuses.length)
-                expect(campuses.length).toBe(1)
+                expect(data.length).toBe(1)
             }).end(done)
     })
 })
@@ -72,10 +72,10 @@ describe('GET /students', () => {
         request(app)
             .get('/api/students')
             .expect(200)
-            .expect(({ body: { offset, students } }) => {
+            .expect(({ body: { offset, data } }) => {
                 expect(offset).toBe(5)
-                expect(students.length).toBe(5)
-                for (let student of students) {
+                expect(data.length).toBe(5)
+                for (let student of data) {
                     expect(student).toMatchObject(studentSchema)
                 }
             }).end(done)
@@ -87,9 +87,9 @@ describe('GET /students', () => {
                 offset: cursor
             })
             .expect(200)
-            .expect(({ body: { offset, students } }) => {
+            .expect(({ body: { offset, data } }) => {
                 expect(offset).toBe(cursor + 5)
-                expect(students.length).toBe(5)
+                expect(data.length).toBe(5)
             }).end(done)
     })
 })

@@ -21,13 +21,13 @@ class CampusCard extends Component {
                         </div>
 
                         <div className="content">
-                            {description.slice(0, 200)}
+                            {description}
                         </div>
                     </div>
                 </div>
                 <style jsx>{`
-                    .content{
-                        max-height: 10vh;
+                    .card-content{
+                        max-height: 30vh;
                         overflow: scroll
                     }
                     `}</style>

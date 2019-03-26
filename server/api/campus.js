@@ -4,12 +4,15 @@ router.get('/', ({ query: { offset = 0, limit = 5 } }, res, next) => {
     Campus.findAll({
         offset,
         limit
-    }).then(campuses => {
+    }).then(data => {
         res.send({
-            offset: Number(offset) + campuses.length,
-            campuses
+            offset: Number(offset) + data.length,
+            data
         })
-    }).catch(e => next(e))
+    }).catch(e => {
+        console.log(e);
+        next(e)
+    })
 })
 router.get('/:id', ({ params: { id } }, res, next) => {
     Campus.findById(Number(id), {

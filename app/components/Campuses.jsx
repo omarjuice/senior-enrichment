@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import CampusCard from './CampusCard';
-
+import { getCampuses } from '../actions';
 class Campuses extends Component {
     componentDidMount() {
+        this.props.getCampuses()
     }
     render() {
         const { campuses } = this.props
@@ -17,4 +18,4 @@ class Campuses extends Component {
     }
 }
 const mapStateToProps = ({ campuses }) => ({ campuses })
-export default connect(mapStateToProps)(Campuses);
+export default connect(mapStateToProps, { getCampuses })(Campuses);

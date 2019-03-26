@@ -7,20 +7,20 @@ const campuses = [
   {
     name: 'Baruch',
     imageUrl: faker.image.city(),
-    address: '46576857968op90[9',
-    description: 'LONG TEXT',
+    address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.state()}, ${faker.address.zipCode()}`,
+    description: faker.lorem.paragraph(),
   },
   {
     name: 'Harvard',
     imageUrl: faker.image.city(),
-    address: 'orhwp;fe[9',
-    description: 'LONG TEXT',
+    address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.state()}, ${faker.address.zipCode()}`,
+    description: faker.lorem.paragraph(),
   },
   {
     name: 'NYU',
     imageUrl: faker.image.city(),
-    address: '4657685o280p9ufwkne;c7968op90[9',
-    description: 'LONG TEXT',
+    address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.state()}, ${faker.address.zipCode()}`,
+    description: faker.lorem.paragraph(),
   },
 ]
 const students = Array(9).fill('x').map((_, i) => {
