@@ -233,3 +233,66 @@ describe('DELETE student', () => {
             .end(done)
     })
 })
+describe('UPDATE campus', () => {
+    it('Should update a campus', done => {
+        const id = 2
+        const campus = {
+            ...seedCampuses[id - 1],
+            description: 'Nice School'
+        }
+        request(app)
+            .put('/api/campuses/' + id)
+            .send(campus)
+            .expect(200)
+            .expect(({ body: updatedCampus }) => {
+                expect(updatedCampus).toMatchObject({
+                    ...campus,
+                    id
+                })
+            }).end(done)
+    })
+    it('Should not update a campus with invalid fields', done => {
+        const id = 3
+        const campus = {
+            ...seedCampuses[id - 1],
+            name: ''
+        }
+        request(app)
+            .put('/api/campuses/' + id)
+            .send(campus)
+            .expect(400)
+            .end(done)
+    })
+})
+describe('UPDATE students', () => {
+    it('Should update a student', done => {
+        const id = 5
+        const student = {
+            ...seedStudents[id - 1],
+            email: 'cool.kid@mail.com',
+        }
+        request(app)
+            .put('/api/students/' + id)
+            .send(student)
+            .expect(200)
+            .expect(({ body: updatedStudent }) => {
+                expect(updatedStudent).toMatchObject({
+                    ...student,
+                    id
+                })
+            }).end(done)
+    })
+    it('Should not update a student with invalid fields', done => {
+        const id = 7
+        const student = {
+            ...seedStudents[id - 1],
+            firstName: '',
+            lastName: ''
+        }
+        request(app)
+            .put('/api/students/' + id)
+            .send(student)
+            .expect(400)
+            .end(done)
+    })
+})

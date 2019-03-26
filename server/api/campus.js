@@ -46,4 +46,19 @@ router.delete('/:id', ({ params: { id } }, res, next) => {
             next(err)
         })
 })
+router.put('/:id', ({ params: { id }, body }, res, next) => {
+    Campus.update(body, {
+        where: {
+            id: Number(id)
+        },
+        returning: true
+    }).then(([_, data]) => {
+
+        res.send(data[0])
+    }).catch(() => {
+        const err = new Error('Could not do that')
+        err.status = 400
+        next(err)
+    })
+})
 module.exports = router
