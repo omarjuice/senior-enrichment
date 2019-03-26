@@ -13,7 +13,6 @@ class CampusCard extends Component {
                     </div>
                     <div className="card-content">
                         <div className="media">
-
                             <div className="media-content">
                                 <p className="title is-4">{name}</p>
                                 <p className="subtitle is-6">{address}</p>
@@ -28,8 +27,9 @@ class CampusCard extends Component {
                 <style jsx>{`
                     .card{
                         height: 70vh;
-                        overflow: scroll
+                        overflow: scroll;
                     }
+                    .card::-webkit-scrollbar { width: 0 !important }
                     `}</style>
             </div>
         );

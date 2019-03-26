@@ -18,6 +18,6 @@ class Students extends Component {
     }
 }
 
-const mapStateToProps = ({ students }) => ({ students })
+const mapStateToProps = ({ students, loading }) => ({ students, loading })
 
 export default connect(mapStateToProps, { getStudents })(Students);

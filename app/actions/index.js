@@ -49,3 +49,4 @@ export const getStudents = (offset = 0, limit = 5) => (dispatch, _, { axios }) =
             dispatch(actions.loading(false))
         })
 }
+export const setError = (exists, message) => actions.error(exists, message)
