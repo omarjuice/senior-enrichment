@@ -9,9 +9,9 @@ class Students extends Component {
         const { students } = this.props
         return (
             <div className="columns is-multiline is-tablet">
-                {students.data.map(({ id, ...student }) => {
+                {students.data.map(student => {
                     console.log(id);
-                    return <StudentCard key={id} {...student} />
+                    return <StudentCard key={student.id} {...student} />
                 })}
             </div>
         );

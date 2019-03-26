@@ -31,16 +31,16 @@ class Navbar extends Component {
                         <div className="navbar-start">
                             <p className="navbar-item">
                                 <Link to="/campuses">
-                                    <p className="has-text-dark">
+                                    <span className="has-text-dark">
                                         Campuses
-                                    </p>
+                                    </span>
                                 </Link>
                             </p>
                             <p className="navbar-item">
                                 <Link to="/students">
-                                    <p className="has-text-dark">
+                                    <span className="has-text-dark">
                                         Students
-                                    </p>
+                                    </span>
                                 </Link>
                             </p>
                             <div className="navbar-item has-dropdown is-hoverable">

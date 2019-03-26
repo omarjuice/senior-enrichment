@@ -4,21 +4,21 @@ const initialState = {
     data: [
         {
             name: 'INITIAL Baruch',
-            imageUrl: faker.image.city(),
+            imageUrl: faker.image.image(),
             address: '46576857968op90[9',
-            description: 'LONG TEXT',
+            description: faker.lorem.paragraph(),
         },
         {
             name: 'INITIAL Harvard',
-            imageUrl: faker.image.city(),
+            imageUrl: faker.image.image(),
             address: 'orhwp;fe[9',
-            description: 'LONG TEXT',
+            description: faker.lorem.paragraph(),
         },
         {
             name: 'INITIAL NYU',
-            imageUrl: faker.image.city(),
+            imageUrl: faker.image.image(),
             address: '4657685o280p9ufwkne;c7968op90[9',
-            description: 'LONG TEXT',
+            description: faker.lorem.paragraph(),
         },
     ]
 }
