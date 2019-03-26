@@ -19,7 +19,8 @@ const studentSchema = {
     gpa: expect.any(Number)
 }
 
-const PORT = process.env.NODE_ENV === 'test' ? 3001 : 3000
+let PORT = process.env.PORT || 3000
+if (process.env.NODE_ENV === 'test') PORT++
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 
 before(() => db.sync({ force: true }) // if you update your db schemas, make sure you drop the tables first and then recreate them

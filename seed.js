@@ -2,6 +2,7 @@ const { db, Campus, Student } = require('./server/db')
 // eslint-disable-next-line no-unused-vars
 const { green, red } = require('chalk')
 const faker = require('faker')
+const test = process.env.NODE_ENV === 'test'
 const campuses = [
   {
     name: 'Baruch',
@@ -34,17 +35,21 @@ const students = Array(9).fill('x').map((_, i) => {
 })
 
 const seed = async () => {
+
   await db.sync({ force: true })
   await Campus.bulkCreate(campuses)
   await Student.bulkCreate(students)
-  // db.close()
+  if (!test) db.close()
+  console.log('SEEDING DONE')
 }
 
-// seed()
-//   .catch(err => {
-//     console.error(red('Oh noes! Something went wrong!'))
-//     console.error(err)
-//     db.close()
-//   })
+if (!test) {
+  seed()
+    .catch(err => {
+      console.error(red('Oh noes! Something went wrong!'))
+      console.error(err)
+      db.close()
+    })
+}
 
 module.exports = { seed, campuses, students }
