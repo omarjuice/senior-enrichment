@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const { Student, Campus } = require('../db')
 
-router.get('/', (
-    { query: { offset = 0, limit = 5 } }
-    , res, next) => {
+router.get('/', ({ query: { offset = 0, limit = 5 } }, res, next) => {
+    offset = Number(offset)
+    limit = Number(limit)
     Student.findAll({
         offset,
         limit
@@ -12,6 +12,10 @@ router.get('/', (
             offset: data.length === limit ? Number(offset) + data.length : null,
             data
         })
+    }).catch(() => {
+        const err = new Error('There was an error')
+        err.status(404)
+        next(err)
     })
 })
 router.get('/:id', ({ params: { id } }, res, next) => {

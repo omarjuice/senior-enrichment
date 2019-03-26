@@ -6,14 +6,36 @@ class Students extends Component {
     componentDidMount() {
         this.props.getStudents()
     }
-    render() {
+    scroll() {
         const { students } = this.props
+        document.querySelectorAll('.card')[students.offset - 5].scrollIntoView()
+    }
+    render() {
+        const { students, loading } = this.props
         return (
-            <div className="columns is-multiline is-tablet">
-                {students.data.map(student => {
-                    return <StudentCard key={student.id} {...student} />
-                })}
-            </div>
+            <>
+                {!students.data.length && loading && <i className="fas fa-circle-notch fa-spin fa-2x"></i>}
+                <div className="columns is-multiline is-tablet">
+                    {students.data.map(student => {
+                        return <StudentCard key={student.id} {...student} />
+                    })}
+                    {students.offset ?
+                        <div className="column is-one-third-desktop is-half-tablet fetch-more">
+                            <button onClick={() => this.props.getStudents(students.offset, 5, this.scroll.bind(this))} className={`button is-primary ${loading && 'is-loading'}`}>
+                                See More
+                        </button>
+                        </div>
+                        : ''}
+                    <style jsx>{`
+                    .fetch-more{
+                        display: flex;
+                        height: 30vh;
+                        justify-content: center;
+                        align-items: center
+                    }
+                    `}</style>
+                </div>
+            </>
         );
     }
 }
