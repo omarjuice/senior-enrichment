@@ -4,12 +4,14 @@ import campuses from './campus'
 import students from './student'
 import loading from './loading'
 import error from './error'
+import modal from './modal'
 
 export default combineReducers({
   campuses,
   students,
   loading,
   form,
-  error
+  error,
+  modal
 })
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import CampusCard from './CampusCard';
 import { getCampuses } from '../actions';
+import { setModal } from '../actions/index';
 class Campuses extends Component {
     componentDidMount() {
         if (this.props.campuses.data.length < 1) {

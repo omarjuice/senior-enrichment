@@ -4,7 +4,8 @@ import {
     ERROR,
     LOADING,
     SINGLE_CAMPUS,
-    SINGLE_STUDENT
+    SINGLE_STUDENT,
+    MODAL
 } from './types'
 
 const actions = {
@@ -34,6 +35,10 @@ const actions = {
     singleCampus: (campus) => ({
         type: SINGLE_CAMPUS,
         campus,
+    }),
+    modal: (active, message, confimationCallback) => ({
+        type: MODAL,
+        active, message, confimationCallback
     })
 }
 export const getCampuses = (offset = 0, limit = 5, callback) => (dispatch, _, { axios }) => {
@@ -84,4 +89,5 @@ export const getSingleStudent = id => (dispatch, _, { axios }) => {
             dispatch(actions.loading(false))
         })
 }
+export const setModal = (active, message, confimationCallback) => actions.modal(active, message, confimationCallback)
 export const setError = (exists, message) => actions.error(exists, message)

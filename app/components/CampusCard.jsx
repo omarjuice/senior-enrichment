@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { setModal } from '../actions/';
 class CampusCard extends Component {
     render() {
-        const { imageUrl, name, description, address, id } = this.props
+        const { imageUrl, name, description, address, id, setModal } = this.props
         return (
             <div className="column is-one-third-desktop is-half-tablet">
                 <div className="card">
                     <div className="card">
-
                         <div className="card-content">
                             <div className="media">
                                 <div className="media-left">
@@ -19,13 +20,11 @@ class CampusCard extends Component {
                                     <Link to={'/campuses/' + id}>
                                         <p className="title is-4">{name}</p>
                                     </Link>
-                                    {/* <p className="subtitle is-6">{address}</p> */}
+                                </div>
+                                <div className="media-right">
+                                    <button onClick={() => setModal(true, 'Are you sure?', null)} className="delete" />
                                 </div>
                             </div>
-
-                            {/* <div className="content">
-                                {description}
-                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -39,11 +38,15 @@ class CampusCard extends Component {
                         display: flex !important;
                         align-items: center !important;
                     }
+                    .media{
+                        width: 100%
+                    }
                     .card::-webkit-scrollbar { width: 0 !important }
-                    `}</style>
+                    `}</style>;
+
+
             </div>
         );
     }
 }
-
-export default CampusCard;
+export default connect(null, { setModal })(CampusCard);

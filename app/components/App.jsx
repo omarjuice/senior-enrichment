@@ -9,12 +9,14 @@ import Navbar from './Navbar';
 import ErrorMessage from './ErrorMessage';
 import SingleCampus from './SingleCampus';
 import SingleStudent from './SingleStudent';
+import Modal from './Modal';
 const App = () => {
   return (<div>
 
     <Router history={history}>
       <>
         <Navbar />
+        <Modal />
         <div className="container">
           <ErrorMessage />
           <Route path='/' exact component={Welcome} />
