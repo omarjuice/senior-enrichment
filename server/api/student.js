@@ -50,7 +50,6 @@ router.delete('/:id', ({ params: { id } }, res, next) => {
         .then(() => {
             res.status(204).send()
         }).catch((e) => {
-            console.log(e);
             const err = new Error('BAD')
             err.status = 400
             next(err)

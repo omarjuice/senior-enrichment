@@ -10,7 +10,6 @@ class AddCampus extends Component {
         }.bind(this))
     }
     render() {
-        console.log('PROPS ', this.props)
         return (
             <div className="columns is-centered">
                 <div className="column is-one-third">

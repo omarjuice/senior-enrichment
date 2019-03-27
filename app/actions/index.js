@@ -43,7 +43,6 @@ export const getSingleStudent = id => (dispatch, _, { axios }) => {
             dispatch(actions.singleStudent(data))
             dispatch(actions.loading(false))
         }).catch((e) => {
-            console.log(e)
             dispatch(actions.error(true, 'Could not find that student'))
             dispatch(actions.loading(false))
         })
@@ -57,7 +56,6 @@ export const deleteCampus = id => (dispatch, _, { axios }) => {
             dispatch(actions.loading(false))
 
         }).catch((e) => {
-            console.log(e);
             dispatch(actions.error(true, 'Couldnt do that.'))
             dispatch(actions.modal(false, '', null))
             dispatch(actions.loading(false))
@@ -85,7 +83,6 @@ export const addCampus = (formValues, redirect) => (dispatch, _, { axios }) => {
             dispatch(actions.loading(false))
             redirect('/campuses/' + data.id)
         }).catch((e) => {
-            console.log(e);
             dispatch(actions.error(true, 'Could not create the campus'))
             dispatch(actions.loading(false))
         })
@@ -98,7 +95,6 @@ export const addStudent = (formValues, redirect) => (dispatch, _, { axios }) => 
             dispatch(actions.loading(false))
             redirect('/students/' + data.id)
         }).catch((e) => {
-            console.log(e);
             dispatch(actions.error(true, 'Could not create the student'))
             dispatch(actions.loading(false))
         })

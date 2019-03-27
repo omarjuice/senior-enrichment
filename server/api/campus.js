@@ -12,7 +12,6 @@ router.get('/', ({ query: { offset = 0, limit = 5 } }, res, next) => {
             data
         })
     }).catch(e => {
-        console.log(e);
         next(e)
     })
 })
@@ -26,7 +25,6 @@ router.get('/:id', ({ params: { id } }, res, next) => {
     }).catch(e => next(e))
 })
 router.post('/', ({ body }, res, next) => {
-    console.log('BODY ', body)
     Campus.create(body, {
         returning: true
     }).then(campus => {
@@ -46,7 +44,6 @@ router.delete('/:id', ({ params: { id } }, res, next) => {
         .then(() => {
             res.status(204).send()
         }).catch((e) => {
-            console.log(e);
             const err = new Error('BAD')
             err.status = 400
             next(err)
