@@ -3,7 +3,7 @@ import { MODAL } from '../actions/types';
 const initialState = {
     active: false,
     message: '',
-    confimationCallback: null
+    confirmationCallback: null
 }
 
 export default (state = initialState, { type, ...action }) => {

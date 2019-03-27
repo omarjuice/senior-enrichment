@@ -1,5 +1,5 @@
 import faker from 'faker'
-import { CAMPUSES, SINGLE_CAMPUS } from '../actions/types';
+import { CAMPUSES, SINGLE_CAMPUS, DELETE_CAMPUS } from '../actions/types';
 
 const initialState = {
     offset: 0,
@@ -40,6 +40,8 @@ export default (state = initialState, action) => {
                     return campus
                 }) : [...state.data, action.campus].sort((a, b) => a.id > b.id)
             return { ...state, data, selectedCampus: action.campus }
+        case DELETE_CAMPUS:
+            return { ...state, data: state.data.filter(({ id }) => id !== action.id) }
         default:
             return state
     }

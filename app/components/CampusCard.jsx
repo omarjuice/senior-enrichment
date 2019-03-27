@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { setModal } from '../actions/';
+import { setModal, deleteCampus } from '../actions/';
 class CampusCard extends Component {
+    handleClick() {
+        const confirmationCallback = function (confirmation) {
+            if (confirmation) {
+                this.props.deleteCampus(this.props.id)
+            } else {
+                this.props.setModal(false, '', null)
+            }
+        }.bind(this)
+        this.props.setModal(true, `Are you sure you want to delete ${this.props.name}?`, confirmationCallback)
+    }
     render() {
         const { imageUrl, name, description, address, id, setModal } = this.props
         return (
@@ -22,7 +32,7 @@ class CampusCard extends Component {
                                     </Link>
                                 </div>
                                 <div className="media-right">
-                                    <button onClick={() => setModal(true, 'Are you sure?', null)} className="delete" />
+                                    <button onClick={this.handleClick.bind(this)} className="delete" />
                                 </div>
                             </div>
                         </div>
@@ -42,11 +52,9 @@ class CampusCard extends Component {
                         width: 100%
                     }
                     .card::-webkit-scrollbar { width: 0 !important }
-                    `}</style>;
-
-
+                    `}</style>
             </div>
         );
     }
 }
-export default connect(null, { setModal })(CampusCard);
+export default connect(null, { setModal, deleteCampus })(CampusCard);

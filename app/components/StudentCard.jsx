@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { setModal, deleteStudent } from '../actions/index';
 class StudentCard extends Component {
+    handleClick() {
+        const confirmationCallback = function (confirmation) {
+            if (confirmation) {
+                this.props.deleteStudent(this.props.id)
+            } else {
+                this.props.setModal(false, '', null)
+            }
+        }.bind(this)
+        this.props.setModal(true,
+            `Are you sure you want to delete ${this.props.firstName + ' ' + this.props.lastName}?`
+            , confirmationCallback)
+    }
+
     render() {
         const { firstName, lastName, imageUrl, email, gpa, id } = this.props
         return (
@@ -17,30 +32,21 @@ class StudentCard extends Component {
                                 <Link to={'/students/' + id}>
                                     <p className="title is-4">{firstName + ' ' + lastName}</p>
                                 </Link>
-                                {/* {includeDetails && <p className="subtitle is-6">{email}</p>} */}
+                            </div>
+                            <div className="media-right">
+                                <button onClick={this.handleClick.bind(this)} className="delete"></button>
                             </div>
                         </div>
-                        <nav className="level is-mobile">
-                            {/* {includeDetails && <div className="level-item has-text-centered">
-                                <div>
-                                    <p className="heading">GPA:</p>
-                                    <p className="title">{gpa}</p>
-                                </div>
-                            </div>
-                            } */}
-                        </nav>
-                        {/* <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br />
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div> */}
                     </div>
                 </div>
+                <style jsx>{`
+                    .media{
+                        width: 100%
+                    }
+                    `}</style>
             </div>
         );
     }
 }
 
-export default StudentCard;
+export default connect(null, { setModal, deleteStudent })(StudentCard);

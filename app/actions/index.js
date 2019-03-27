@@ -5,7 +5,9 @@ import {
     LOADING,
     SINGLE_CAMPUS,
     SINGLE_STUDENT,
-    MODAL
+    MODAL,
+    DELETE_CAMPUS,
+    DELETE_STUDENT
 } from './types'
 
 const actions = {
@@ -28,17 +30,25 @@ const actions = {
         type: LOADING,
         isLoading
     }),
-    singleStudent: (student) => ({
+    singleStudent: student => ({
         type: SINGLE_STUDENT,
         student
     }),
-    singleCampus: (campus) => ({
+    singleCampus: campus => ({
         type: SINGLE_CAMPUS,
         campus,
     }),
-    modal: (active, message, confimationCallback) => ({
+    modal: (active, message, confirmationCallback) => ({
         type: MODAL,
-        active, message, confimationCallback
+        active, message, confirmationCallback
+    }),
+    deleteCampus: id => ({
+        type: DELETE_CAMPUS,
+        id
+    }),
+    deleteStudent: id => ({
+        type: DELETE_STUDENT,
+        id
     })
 }
 export const getCampuses = (offset = 0, limit = 5, callback) => (dispatch, _, { axios }) => {
@@ -89,5 +99,37 @@ export const getSingleStudent = id => (dispatch, _, { axios }) => {
             dispatch(actions.loading(false))
         })
 }
-export const setModal = (active, message, confimationCallback) => actions.modal(active, message, confimationCallback)
+export const deleteCampus = id => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.delete('/api/campuses/' + id)
+        .then(() => {
+            dispatch(actions.deleteCampus(id))
+            dispatch(actions.modal(false, '', null))
+            dispatch(actions.loading(false))
+
+        }).catch((e) => {
+            console.log(e);
+            dispatch(actions.error(true, 'Couldnt do that.'))
+            dispatch(actions.modal(false, '', null))
+            dispatch(actions.loading(false))
+        })
+}
+export const deleteStudent = id => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.delete('/api/students/' + id)
+        .then(() => {
+            dispatch(actions.deleteStudent(id))
+            dispatch(actions.modal(false, '', null))
+            dispatch(actions.loading(false))
+
+        }).catch(() => {
+            dispatch(actions.error(true, 'Couldnt do that.'))
+            dispatch(actions.modal(false, '', null))
+            dispatch(actions.loading(false))
+        })
+}
+export const setModal = (active, message, confirmationCallback) => {
+    console.log(confirmationCallback)
+    return actions.modal(active, message, confirmationCallback)
+}
 export const setError = (exists, message) => actions.error(exists, message)
