@@ -9,6 +9,9 @@ class SingleCampus extends Component {
     }
     render() {
         const { selectedCampus: { id, name, address, description, imageUrl, students }, loading } = this.props
+        if (!id) {
+            return null
+        }
         return <div className="columns is-multiline is-mobile is-centered">
             <div className="column is-5-desktop is-8-tablet is-11-mobile has-text-centered">
                 {loading ? <i className="fas fa-circle-notch fa-spin fa-5x"></i> :
@@ -40,15 +43,9 @@ class SingleCampus extends Component {
             <div className="column is-full has-text-centered">{students ? <h1 className="title is-4">Students</h1> : null}</div>
             {
                 students && students.length ? students.map(student => {
-                    return <StudentCard key={student.id} {...student} />
-                }) : <div className="column">This campus has no students yet.</div>
+                    return <StudentCard disableDelete={true} key={student.id} {...student} />
+                }) : <div className="column has-text-centered">This campus has no students yet.</div>
             }
-
-            <style jsx>{`
-                .column{
-                    margin-top: 3rem;
-                }
-                `}</style>
         </div>
 
     }

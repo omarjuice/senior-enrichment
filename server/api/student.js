@@ -28,6 +28,7 @@ router.get('/:id', ({ params: { id } }, res, next) => {
     }).catch(e => next(e))
 })
 router.post('/', ({ body }, res, next) => {
+    console.log('BODY ', body)
     Student.create(body, {
         returning: true
     })

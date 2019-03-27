@@ -7,8 +7,7 @@ class Modal extends Component {
         this.props.setModal(false, '', null)
     }
     render() {
-        const { active, message, confirmationCallback } = this.props
-        console.log(confirmationCallback);
+        const { active, message, confirmationCallback, loading } = this.props
         return (
             <div className={`modal ${active && 'is-active'}`}>
                 <div onClick={this.hide} className="modal-background"></div>
@@ -19,6 +18,7 @@ class Modal extends Component {
                     </header>
                     <section className="modal-card-body has-text-centered">
                         <h1 className="title is-5">{message}</h1>
+                        {loading && <i className="fas fa-circle-notch fa-spin fa-2x"></i>}
                         <div className="columns is-mobile is-centered">
                             <div className="column is-1">
                                 <button onClick={() => confirmationCallback(true)} className="button is-success">
@@ -41,5 +41,5 @@ class Modal extends Component {
         );
     }
 }
-const mapStateToProps = ({ modal }) => ({ ...modal })
+const mapStateToProps = ({ modal, loading }) => ({ ...modal, loading })
 export default connect(mapStateToProps, { setModal })(Modal);

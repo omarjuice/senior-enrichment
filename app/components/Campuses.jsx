@@ -6,7 +6,7 @@ import { setModal } from '../actions/index';
 class Campuses extends Component {
     componentDidMount() {
         if (this.props.campuses.data.length < 1) {
-            this.props.getCampuses()
+            this.props.getCampuses(0, 8)
         }
 
     }

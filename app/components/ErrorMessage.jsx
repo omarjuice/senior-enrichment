@@ -5,12 +5,12 @@ const ErrorMessage = ({ error, setError }) => {
 
   if (error.exists) {
     return (
-      <article class="message is-danger">
-        <div class="message-header">
+      <article className="message is-danger">
+        <div className="message-header">
           <p>Error</p>
-          <button onClick={() => setError(false, '')} class="delete" aria-label="delete"></button>
+          <button onClick={() => setError(false, '')} className="delete" aria-label="delete"></button>
         </div>
-        <div class="message-body">
+        <div className="message-body">
           {error.message}
         </div>
       </article>

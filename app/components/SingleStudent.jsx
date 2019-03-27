@@ -10,6 +10,9 @@ class SingleStudent extends Component {
     }
     render() {
         const { selectedStudent: { imageUrl, firstName, lastName, gpa, loading, id, email, campus } } = this.props
+        if (!id) {
+            return null
+        }
         return (<div className="columns is-centered is-mobile is-multiline">
             <div className="column has-text-centered is-one-third-desktop is-half-tablet is-11-mobile">
                 {loading ? <i className="fas fa-circle-notch fa-spin fa-5x"></i> : <div className="card">
@@ -17,7 +20,7 @@ class SingleStudent extends Component {
                         <div className="media">
                             <div className="media-left">
                                 <figure className="image is-48x48">
-                                    <img src={imageUrl} alt="Placeholder image" />
+                                    <img src={imageUrl} />
                                 </figure>
                             </div>
                             <div className="media-content">
@@ -40,7 +43,7 @@ class SingleStudent extends Component {
                     </div>
                 </div>}
             </div>
-            {campus ? <CampusCard {...campus} /> : <div className="column is-one-third-desktop is-half-tablet is-11-mobile">
+            {campus ? <CampusCard disableDelete={true} {...campus} /> : <div className="column is-one-third-desktop is-half-tablet is-11-mobile">
                 This student does not go to school.
             </div>}
         </div>

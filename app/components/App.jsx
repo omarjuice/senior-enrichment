@@ -10,6 +10,8 @@ import ErrorMessage from './ErrorMessage';
 import SingleCampus from './SingleCampus';
 import SingleStudent from './SingleStudent';
 import Modal from './Modal';
+import AddCampus from './AddCampus';
+import AddStudent from './AddStudent';
 const App = () => {
   return (<div>
 
@@ -22,6 +24,8 @@ const App = () => {
           <Route path='/' exact component={Welcome} />
           <Route path='/campuses' exact component={Campuses} />
           <Route path='/students' exact component={Students} />
+          <Route path='/new/campus' exact component={AddCampus} />
+          <Route path='/new/student' exact component={AddStudent} />
           <Route path='/campuses/:id' exact component={SingleCampus} />
           <Route path='/students/:id' exact component={SingleStudent} />
         </div>
@@ -29,7 +33,7 @@ const App = () => {
     </Router>
     <style jsx>{`
         .container{
-          margin-top: 3rem;
+          margin-top: 4rem;
         }
         `}</style>
   </div>

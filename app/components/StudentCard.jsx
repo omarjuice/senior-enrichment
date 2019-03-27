@@ -17,7 +17,7 @@ class StudentCard extends Component {
     }
 
     render() {
-        const { firstName, lastName, imageUrl, email, gpa, id } = this.props
+        const { firstName, lastName, imageUrl, email, gpa, id, disableDelete } = this.props
         return (
             <div className="column is-full-mobile is-half-tablet is-one-third-desktop ">
                 <div className="card">
@@ -33,9 +33,9 @@ class StudentCard extends Component {
                                     <p className="title is-4">{firstName + ' ' + lastName}</p>
                                 </Link>
                             </div>
-                            <div className="media-right">
+                            {!disableDelete && <div className="media-right">
                                 <button onClick={this.handleClick.bind(this)} className="delete"></button>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>

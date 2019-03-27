@@ -26,6 +26,7 @@ router.get('/:id', ({ params: { id } }, res, next) => {
     }).catch(e => next(e))
 })
 router.post('/', ({ body }, res, next) => {
+    console.log('BODY ', body)
     Campus.create(body, {
         returning: true
     }).then(campus => {

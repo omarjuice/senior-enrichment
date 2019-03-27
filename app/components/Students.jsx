@@ -5,7 +5,7 @@ import { getStudents } from '../actions'
 class Students extends Component {
     componentDidMount() {
         if (this.props.students.data.length < 1) {
-            this.props.getStudents()
+            this.props.getStudents(0, 14)
         }
     }
     scroll() {

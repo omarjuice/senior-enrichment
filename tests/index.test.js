@@ -202,6 +202,26 @@ describe('POST /students', () => {
                 })
             }).end(done)
     })
+    it('Should set the default image', done => {
+        const newStudent = {
+            firstName: 'Omar',
+            lastName: 'Juice',
+            email: 'omar.juice@gmail.com',
+            gpa: 3.9,
+            campusId: 1
+        }
+        request(app)
+            .post('/api/students')
+            .send(newStudent)
+            .expect(201)
+            .expect(({ body: createdStudent }) => {
+                expect(createdStudent).toMatchObject({
+                    ...newStudent,
+                    id: seedStudents.length + 1,
+                    imageUrl: expect.any(String)
+                })
+            }).end(done)
+    })
     it('Should not create a new student with invalid fields', done => {
         const newStudent = {
             firstName: 'Omar',

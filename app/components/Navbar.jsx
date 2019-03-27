@@ -48,24 +48,18 @@ class Navbar extends Component {
                                     More
                             </a>
                                 <div className="navbar-dropdown">
-                                    <a className="navbar-item">
-                                        About
-                                </a>
-                                    <a className="navbar-item">
-                                        Jobs
-                                </a>
-                                    <a className="navbar-item">
-                                        Contact
-                                </a>
+                                    <div className="navbar-item">
+                                        <Link to="/new/student" onClick={this.toggleMenu}>New Student</Link>
+                                    </div>
                                     <hr className="navbar-divider" />
-                                    <a className="navbar-item">
-                                        Report an issue
-                                </a>
+                                    <div className="navbar-item">
+                                        <Link to="/new/campus" onClick={this.toggleMenu}>New Campus</Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="navbar-end">
+                        {/* <div className="navbar-end">
                             <div className="navbar-item">
                                 <div className="buttons">
                                     <a className="button is-primary">
@@ -76,7 +70,7 @@ class Navbar extends Component {
                                  </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </nav>
             </div>

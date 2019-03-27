@@ -1,56 +1,5 @@
-import {
-    CAMPUSES,
-    STUDENTS,
-    ERROR,
-    LOADING,
-    SINGLE_CAMPUS,
-    SINGLE_STUDENT,
-    MODAL,
-    DELETE_CAMPUS,
-    DELETE_STUDENT
-} from './types'
+import actions from './creators'
 
-const actions = {
-    campuses: ({ offset, data }) => ({
-        type: CAMPUSES,
-        offset,
-        data
-    }),
-    students: ({ offset, data }) => ({
-        type: STUDENTS,
-        offset,
-        data
-    }),
-    error: (exists, message = 'There was an error') => ({
-        type: ERROR,
-        exists,
-        message
-    }),
-    loading: (isLoading = false) => ({
-        type: LOADING,
-        isLoading
-    }),
-    singleStudent: student => ({
-        type: SINGLE_STUDENT,
-        student
-    }),
-    singleCampus: campus => ({
-        type: SINGLE_CAMPUS,
-        campus,
-    }),
-    modal: (active, message, confirmationCallback) => ({
-        type: MODAL,
-        active, message, confirmationCallback
-    }),
-    deleteCampus: id => ({
-        type: DELETE_CAMPUS,
-        id
-    }),
-    deleteStudent: id => ({
-        type: DELETE_STUDENT,
-        id
-    })
-}
 export const getCampuses = (offset = 0, limit = 5, callback) => (dispatch, _, { axios }) => {
     dispatch(actions.loading(true))
     axios.get(`/api/campuses?offset=${offset}&limit=${limit}`)
@@ -128,8 +77,32 @@ export const deleteStudent = id => (dispatch, _, { axios }) => {
             dispatch(actions.loading(false))
         })
 }
-export const setModal = (active, message, confirmationCallback) => {
-    console.log(confirmationCallback)
-    return actions.modal(active, message, confirmationCallback)
+export const addCampus = (formValues, redirect) => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.post('/api/campuses', formValues)
+        .then(({ data }) => {
+            dispatch(actions.addCampus(data))
+            dispatch(actions.loading(false))
+            redirect('/campuses/' + data.id)
+        }).catch((e) => {
+            console.log(e);
+            dispatch(actions.error(true, 'Could not create the campus'))
+            dispatch(actions.loading(false))
+        })
 }
+export const addStudent = (formValues, redirect) => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.post('/api/students', formValues)
+        .then(({ data }) => {
+            dispatch(actions.addStudent(data))
+            dispatch(actions.loading(false))
+            redirect('/students/' + data.id)
+        }).catch((e) => {
+            console.log(e);
+            dispatch(actions.error(true, 'Could not create the student'))
+            dispatch(actions.loading(false))
+        })
+}
+export const setModal = (active, message, confirmationCallback) => actions.modal(active, message, confirmationCallback)
+
 export const setError = (exists, message) => actions.error(exists, message)

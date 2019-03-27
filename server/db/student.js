@@ -25,8 +25,9 @@ const Student = db.define('student', {
         }
     },
     imageUrl: {
-        type: Sequelize.STRING,
-        defaultValue: 'image'
+        type: Sequelize.TEXT,
+        defaultValue: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ4JtwQsqBfhno8hJt4sa_PPCrJmarnS0RcL3QOZLTmCmJQihR',
+        allowNull: false
     },
     gpa: {
         type: Sequelize.FLOAT,
