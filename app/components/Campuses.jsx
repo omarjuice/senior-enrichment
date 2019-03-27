@@ -4,11 +4,14 @@ import CampusCard from './CampusCard';
 import { getCampuses } from '../actions';
 class Campuses extends Component {
     componentDidMount() {
-        this.props.getCampuses()
+        if (this.props.campuses.data.length < 1) {
+            this.props.getCampuses()
+        }
+
     }
     scroll() {
         const { campuses } = this.props
-        document.querySelectorAll('.card')[campuses.offset - 6].scrollIntoView()
+        document.querySelectorAll('.card')[campuses.offset - 4].scrollIntoView()
     }
     render() {
         const { campuses, loading } = this.props
@@ -29,7 +32,7 @@ class Campuses extends Component {
                     <style jsx>{`
                     .fetch-more{
                         display: flex;
-                        height: 70vh;
+                        height: 20vh;
                         justify-content: center;
                         align-items: center
                     }

@@ -4,7 +4,9 @@ import StudentCard from './StudentCard';
 import { getStudents } from '../actions'
 class Students extends Component {
     componentDidMount() {
-        this.props.getStudents()
+        if (this.props.students.data.length < 1) {
+            this.props.getStudents()
+        }
     }
     scroll() {
         const { students } = this.props
@@ -29,7 +31,7 @@ class Students extends Component {
                     <style jsx>{`
                     .fetch-more{
                         display: flex;
-                        height: 30vh;
+                        height: 20vh;
                         justify-content: center;
                         align-items: center
                     }

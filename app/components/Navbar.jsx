@@ -14,9 +14,9 @@ class Navbar extends Component {
             <div>
                 <nav className="navbar is-fixed-top" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
-                        <p className="navbar-item" href="https://bulma.io">
+                        <p className="navbar-item">
                             <Link to="/">
-                                <img src="favicon.ico" />
+                                <img src="/favicon.ico" />
                             </Link>
                         </p>
 

@@ -7,8 +7,10 @@ import Campuses from './Campuses';
 import Students from './Students';
 import Navbar from './Navbar';
 import ErrorMessage from './ErrorMessage';
+import SingleCampus from './SingleCampus';
+import SingleStudent from './SingleStudent';
 const App = () => {
-  return (<>
+  return (<div>
 
     <Router history={history}>
       <>
@@ -18,10 +20,17 @@ const App = () => {
           <Route path='/' exact component={Welcome} />
           <Route path='/campuses' exact component={Campuses} />
           <Route path='/students' exact component={Students} />
+          <Route path='/campuses/:id' exact component={SingleCampus} />
+          <Route path='/students/:id' exact component={SingleStudent} />
         </div>
       </>
     </Router>
-  </>
+    <style jsx>{`
+        .container{
+          margin-top: 3rem;
+        }
+        `}</style>
+  </div>
   )
 }
 
