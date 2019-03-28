@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Router, Route } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 import history from '../history'
 import Welcome from './Welcome';
 import Campuses from './Campuses';
@@ -12,6 +12,7 @@ import SingleStudent from './SingleStudent';
 import Modal from './Modal';
 import AddCampus from './AddCampus';
 import AddStudent from './AddStudent';
+import NotFound from './NotFound';
 const App = () => {
   return (<div>
 
@@ -21,13 +22,16 @@ const App = () => {
         <Modal />
         <div className="container">
           <ErrorMessage />
-          <Route path='/' exact component={Welcome} />
-          <Route path='/campuses' exact component={Campuses} />
-          <Route path='/students' exact component={Students} />
-          <Route path='/new/campus' exact component={AddCampus} />
-          <Route path='/new/student' exact component={AddStudent} />
-          <Route path='/campuses/:id' exact component={SingleCampus} />
-          <Route path='/students/:id' exact component={SingleStudent} />
+          <Switch>
+            <Route path='/' exact component={Welcome} />
+            <Route path='/campuses' exact component={Campuses} />
+            <Route path='/students' exact component={Students} />
+            <Route path='/new/campus' exact component={AddCampus} />
+            <Route path='/new/student' exact component={AddStudent} />
+            <Route path='/campuses/:id' exact component={SingleCampus} />
+            <Route path='/students/:id' exact component={SingleStudent} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </>
     </Router>

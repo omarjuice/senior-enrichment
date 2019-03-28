@@ -20,7 +20,7 @@ class CampusCard extends Component {
         const { imageUrl, name, id, disableDelete } = this.props
         return (<>
             {this.props.wayPoint}
-            <div className="column is-one-third-desktop is-half-tablet">
+            <div className="column is-one-third-desktop is-half-tablet is-full-mobile">
                 <div className="card has-background-white-bis"
                     onMouseOver={() => this.setState({ hovered: true })}
                     onMouseLeave={() => this.setState({ hovered: false })}
