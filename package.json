@@ -7,9 +7,12 @@
     "start:dev": "export NODE_ENV=development && npm run build-watch & npm run start-server",
     "start-server": "nodemon --watch server main.js -e html,js,css",
     "build-watch": "webpack -w",
-    "start": "echo 'Running server for production - developers, use npm run start:dev for development' && node main",
+    "build": "webpack",
+    "start": "echo 'Running server for production - developers, use npm run start:dev for development' && export NODE_ENV=production && node main",
     "seed": "export NODE_ENV=development && node seed.js",
-    "test": "export NODE_ENV=test && mocha **/*.test.js"
+    "seed:prod": "export NODE_ENV=production && node seed.js",
+    "test": "export NODE_ENV=test && mocha **/*.test.js",
+    "postinstall": "npm run build && npm run seed:prod"
   },
   "keywords": [
     "react",

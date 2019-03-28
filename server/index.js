@@ -6,7 +6,7 @@ const path = require('path')
 
 const app = express()
 
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'production') {
   app.use(require('volleyball'))
 }
 
