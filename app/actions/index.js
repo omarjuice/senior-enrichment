@@ -103,7 +103,6 @@ export const updateCampus = (id, formValues) => (dispatch, _, { axios }) => {
     dispatch(actions.loading(true))
     axios.put('/api/campuses/' + id, formValues)
         .then(({ data }) => {
-
             dispatch(actions.updateCampus(data))
             dispatch(actions.loading(false))
         }).catch(() => {
@@ -117,7 +116,6 @@ export const updateStudent = (id, formValues, campusWasUpdated) => (dispatch, _,
         .then(async ({ data }) => {
             if (campusWasUpdated) {
                 const { data: campus } = await axios.get('/api/campuses/' + formValues.campusId).catch(() => null)
-                console.log('CAMPUS: ', campus)
                 if (campus) {
                     data.campus = campus
                 }

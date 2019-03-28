@@ -1,19 +1,7 @@
-import faker from 'faker'
 import { STUDENTS, SINGLE_STUDENT, DELETE_STUDENT, ADD_STUDENT, UPDATE_STUDENT } from '../actions/types';
 const initialState = {
-    offset: 9,
+    offset: 0,
     data: ([]
-        //     Array(9).fill('x').map((_, i) => {
-        //     return {
-        //         id: i + 1,
-        //         firstName: faker.name.firstName(),
-        //         lastName: 'INITIAL',
-        //         email: faker.internet.email(),
-        //         imageUrl: faker.image.avatar(),
-        //         gpa: Number(String(Math.random() * 4).slice(0, 3)),
-        //         campusId: i % 3 + 1
-        //     }
-        // })
     ),
     selectedStudent: {}
 }

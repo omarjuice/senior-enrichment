@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Waypoint } from 'react-waypoint'
 import CampusCard from './CampusCard';
 import { getCampuses } from '../actions';
-import { setModal } from '../actions/index';
 class Campuses extends Component {
     componentDidMount() {
         if (this.props.campuses.data.length < 1) {
-            this.props.getCampuses(0, 8)
+            this.props.getCampuses(0, 12)
         }
 
-    }
-    scroll() {
-        const { campuses } = this.props
-        document.querySelectorAll('.card')[campuses.offset - 4].scrollIntoView()
     }
     render() {
         const { campuses, loading } = this.props
@@ -24,11 +20,10 @@ class Campuses extends Component {
                         return <CampusCard key={campus.id || i + 1} {...campus} />
                     })}
                     {campuses.offset ?
-                        <div className="column is-one-third-desktop is-half-tablet fetch-more">
-                            <button onClick={() => this.props.getCampuses(campuses.offset, 5, this.scroll.bind(this))} className={`button is-primary ${loading && 'is-loading'}`}>
-                                See More
-                        </button>
-                        </div>
+                        <Waypoint onEnter={() => {
+                            console.log('WAYPOINT')
+                            this.props.getCampuses(campuses.offset, 6)
+                        }} />
                         : ''}
                     <style jsx>{`
                     .fetch-more{

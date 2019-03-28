@@ -28,6 +28,7 @@
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
+    "react-waypoint": "^9.0.1",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.7",
     "redux-form": "^8.1.0",
