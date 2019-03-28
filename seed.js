@@ -65,6 +65,7 @@ if (!test) {
       console.error(red('Oh noes! Something went wrong!'))
       console.error(err)
       db.close()
+      process.exit()
     })
 }
 
