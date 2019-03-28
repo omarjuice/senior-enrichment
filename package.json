@@ -12,7 +12,7 @@
     "seed": "export NODE_ENV=development && node seed.js",
     "seed:prod": "export NODE_ENV=production && node seed.js",
     "test": "export NODE_ENV=test && mocha **/*.test.js",
-    "postinstall": "npm run build && npm run seed:prod"
+    "postinstall": "npm run build"
   },
   "keywords": [
     "react",
