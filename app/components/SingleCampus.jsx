@@ -16,25 +16,23 @@ class SingleCampus extends Component {
         return <div className="columns is-multiline is-mobile is-centered">
             <div className="column is-5-desktop is-8-tablet is-11-mobile has-text-centered">
                 {loading ? <i className="fas fa-circle-notch fa-spin fa-5x"></i> :
-                    <div className="card">
-                        <div className="card">
-                            <div className="card-image">
-                                <figure className="image is-4by3">
-                                    <img src={imageUrl} alt="Placeholder image" />
-                                </figure>
+                    <div className="card has-background-white-bis">
+                        <div className="card-image">
+                            <figure className="image is-4by3">
+                                <img src={imageUrl} alt="Placeholder image" />
+                            </figure>
+                        </div>
+                        <div className="card-content">
+                            <div className="media">
+
+                                <div className="media-content">
+                                    <p className="title is-4">{name}</p>
+                                    <p className="subtitle is-6">{address}</p>
+                                </div>
                             </div>
-                            <div className="card-content">
-                                <div className="media">
 
-                                    <div className="media-content">
-                                        <p className="title is-4">{name}</p>
-                                        <p className="subtitle is-6">{address}</p>
-                                    </div>
-                                </div>
-
-                                <div className="content">
-                                    {description}
-                                </div>
+                            <div className="content">
+                                {description}
                             </div>
                         </div>
                     </div>

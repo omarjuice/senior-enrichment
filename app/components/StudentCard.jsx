@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { setModal, deleteStudent } from '../actions/index';
 class StudentCard extends Component {
+    state = {
+        hovered: false
+    }
     handleClick() {
         const confirmationCallback = function (confirmation) {
             if (confirmation) {
@@ -22,7 +25,11 @@ class StudentCard extends Component {
             <>
                 {this.props.wayPoint}
                 <div className="column is-full-mobile is-half-tablet is-one-third-desktop ">
-                    <div className="card">
+                    <div className="card has-background-white-bis"
+                        onMouseOver={() => this.setState({ hovered: true })}
+                        onMouseLeave={() => this.setState({ hovered: false })}
+                        onClick={() => this.setState({ hovered: true })}
+                    >
                         <div className="card-content">
                             <div className="media">
                                 <div className="media-left">
@@ -35,7 +42,7 @@ class StudentCard extends Component {
                                         <p className="title is-4">{firstName + ' ' + lastName}</p>
                                     </Link>
                                 </div>
-                                {!disableDelete && <div className="media-right">
+                                {!disableDelete && this.state.hovered && <div className="media-right">
                                     <button onClick={this.handleClick.bind(this)} className="delete"></button>
                                 </div>}
                             </div>

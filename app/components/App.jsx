@@ -36,6 +36,11 @@ const App = () => {
           margin-top: 4rem;
         }
         `}</style>
+    <style jsx global>{`
+      body, html{
+        background-color: #fffdff
+      }
+      `}</style>
   </div>
   )
 }

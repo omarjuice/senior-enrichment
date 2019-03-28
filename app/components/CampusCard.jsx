@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setModal, deleteCampus } from '../actions/';
 class CampusCard extends Component {
+    state = {
+        hovered: false
+    }
     handleClick() {
         const confirmationCallback = function (confirmation) {
             if (confirmation) {
@@ -14,11 +17,15 @@ class CampusCard extends Component {
         this.props.setModal(true, `Are you sure you want to delete ${this.props.name}?`, confirmationCallback)
     }
     render() {
-        const { imageUrl, name, description, address, id, setModal, disableDelete } = this.props
+        const { imageUrl, name, id, disableDelete } = this.props
         return (<>
             {this.props.wayPoint}
             <div className="column is-one-third-desktop is-half-tablet">
-                <div className="card">
+                <div className="card has-background-white-bis"
+                    onMouseOver={() => this.setState({ hovered: true })}
+                    onMouseLeave={() => this.setState({ hovered: false })}
+                    onClick={() => this.setState({ hovered: true })}
+                >
                     <div className="card-content">
                         <div className="media">
                             <div className="media-left">
@@ -31,7 +38,7 @@ class CampusCard extends Component {
                                     <p className="title is-4">{name}</p>
                                 </Link>
                             </div>
-                            {!disableDelete && <div className="media-right">
+                            {!disableDelete && this.state.hovered && <div className="media-right">
                                 <button onClick={this.handleClick.bind(this)} className="delete" />
                             </div>}
                         </div>
