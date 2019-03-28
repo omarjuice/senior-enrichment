@@ -13,7 +13,7 @@ class StudentForm extends Component {
         formValues.gpa = Number(formValues.gpa)
         return formValues
     }
-    renderInput = ({ input, label, meta, type, min, max }) => {
+    renderInput = ({ input, label, meta, type, min, max, step }) => {
         const className = () => {
             if (!meta.touched) {
                 return 'input'
@@ -31,7 +31,7 @@ class StudentForm extends Component {
             <div className="field">
                 <label className="label" htmlFor={label}>{label}</label>
                 <div className="control">
-                    <input className={className()} type={type || "text"} {...input} autoComplete="off" min={min} max={max} />
+                    <input className={className()} type={type || "text"} {...input} autoComplete="off" min={min} max={max} step={step} />
                     {helpMessage}
                 </div>
             </div>
@@ -43,7 +43,7 @@ class StudentForm extends Component {
                 <Field component={this.renderInput} name="firstName" label="firstName" />
                 <Field component={this.renderInput} name="lastName" label="lastName" />
                 <Field component={this.renderInput} name="email" label="email" type="email" />
-                <Field component={this.renderInput} name="gpa" label="gpa" type="number" min={0} max={4} />
+                <Field component={this.renderInput} name="gpa" label="gpa" type="number" min={0} max={4} step={.1} />
                 <Field component={this.renderInput} name="imageUrl" label="imageUrl" />
                 <Field component={this.renderInput} name="campusId" label="campus" type="number" min={1} />
                 <button className="button is-success">Submit</button>

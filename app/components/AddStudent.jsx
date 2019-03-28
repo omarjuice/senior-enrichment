@@ -12,7 +12,7 @@ class AddStudent extends Component {
     render() {
         return (
             <div className="columns is-centered">
-                <div className="column is-one-third">
+                <div className="column is-two-fifths-desktop is-two-thirds-tablet is-11-mobile">
                     <StudentForm onSubmit={this.onSubmit.bind(this)} />
                 </div>
             </div>

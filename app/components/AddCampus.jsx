@@ -11,8 +11,8 @@ class AddCampus extends Component {
     }
     render() {
         return (
-            <div className="columns is-centered">
-                <div className="column is-one-third">
+            <div className="columns is-centered is-mobile">
+                <div className="column is-two-fifths-desktop is-two-thirds-tablet is-11-mobile">
                     <CampusForm onSubmit={this.onSubmit.bind(this)} />
                 </div>
             </div>

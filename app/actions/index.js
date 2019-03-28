@@ -94,8 +94,38 @@ export const addStudent = (formValues, redirect) => (dispatch, _, { axios }) => 
             dispatch(actions.addStudent(data))
             dispatch(actions.loading(false))
             redirect('/students/' + data.id)
-        }).catch((e) => {
+        }).catch(() => {
             dispatch(actions.error(true, 'Could not create the student'))
+            dispatch(actions.loading(false))
+        })
+}
+export const updateCampus = (id, formValues) => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.put('/api/campuses/' + id, formValues)
+        .then(({ data }) => {
+
+            dispatch(actions.updateCampus(data))
+            dispatch(actions.loading(false))
+        }).catch(() => {
+            dispatch(actions.error(true, 'Could not update the campus'))
+            dispatch(actions.loading(false))
+        })
+}
+export const updateStudent = (id, formValues, campusWasUpdated) => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.put('/api/students/' + id, formValues)
+        .then(async ({ data }) => {
+            if (campusWasUpdated) {
+                const { data: campus } = await axios.get('/api/campuses/' + formValues.campusId).catch(() => null)
+                console.log('CAMPUS: ', campus)
+                if (campus) {
+                    data.campus = campus
+                }
+            }
+            dispatch(actions.updateStudent(data))
+            dispatch(actions.loading(false))
+        }).catch(() => {
+            dispatch(actions.error(true, 'Could not update the student'))
             dispatch(actions.loading(false))
         })
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getSingleStudent } from '../actions';
 import { Link } from 'react-router-dom';
 import CampusCard from './CampusCard';
+import EditStudent from './EditStudent';
 
 class SingleStudent extends Component {
     componentDidMount() {
@@ -46,6 +47,7 @@ class SingleStudent extends Component {
             {campus ? <CampusCard disableDelete={true} {...campus} /> : <div className="column is-one-third-desktop is-half-tablet is-11-mobile">
                 This student does not go to school.
             </div>}
+            <EditStudent id={id} initialValues={{ imageUrl, firstName, lastName, gpa, loading, id, email, campusId: campus ? campus.id : undefined }} />
         </div>
         );
     }

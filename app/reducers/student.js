@@ -1,5 +1,5 @@
 import faker from 'faker'
-import { STUDENTS, SINGLE_STUDENT, DELETE_STUDENT, ADD_STUDENT } from '../actions/types';
+import { STUDENTS, SINGLE_STUDENT, DELETE_STUDENT, ADD_STUDENT, UPDATE_STUDENT } from '../actions/types';
 const initialState = {
     offset: 9,
     data: ([]
@@ -37,7 +37,15 @@ export default (state = initialState, action) => {
         case DELETE_STUDENT:
             return { ...state, data: state.data.filter(({ id }) => id !== action.id) };
         case ADD_STUDENT:
-            return { ...state, selectedStudent: action.student }
+            return { ...state, selectedStudent: action.student };
+        case UPDATE_STUDENT:
+            const students = state.data.map(student => {
+                if (student.id === action.student.id) {
+                    student = { ...student, ...action.student }
+                }
+                return student
+            })
+            return { ...state, data: students, selectedStudent: { ...state.selectedStudent, ...action.student } }
         default:
             return state
     }

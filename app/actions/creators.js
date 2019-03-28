@@ -9,7 +9,9 @@ import {
     DELETE_CAMPUS,
     DELETE_STUDENT,
     ADD_CAMPUS,
-    ADD_STUDENT
+    ADD_STUDENT,
+    UPDATE_CAMPUS,
+    UPDATE_STUDENT
 } from './types'
 
 export default {
@@ -58,6 +60,14 @@ export default {
     }),
     addStudent: student => ({
         type: ADD_STUDENT,
+        student
+    }),
+    updateCampus: campus => ({
+        type: UPDATE_CAMPUS,
+        campus
+    }),
+    updateStudent: student => ({
+        type: UPDATE_STUDENT,
         student
     })
 }

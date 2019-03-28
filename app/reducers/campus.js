@@ -1,5 +1,5 @@
 import faker from 'faker'
-import { CAMPUSES, SINGLE_CAMPUS, DELETE_CAMPUS, ADD_CAMPUS } from '../actions/types';
+import { CAMPUSES, SINGLE_CAMPUS, DELETE_CAMPUS, ADD_CAMPUS, UPDATE_CAMPUS } from '../actions/types';
 
 const initialState = {
     offset: 0,
@@ -43,7 +43,16 @@ export default (state = initialState, action) => {
         case DELETE_CAMPUS:
             return { ...state, data: state.data.filter(({ id }) => id !== action.id) };
         case ADD_CAMPUS:
-            return { ...state, selectedCampus: action.campus }
+            return { ...state, selectedCampus: action.campus };
+        case UPDATE_CAMPUS:
+            const campuses = state.data.map(campus => {
+                if (campus.id === action.campus.id) {
+                    campus = { ...campus, ...action.campus }
+                }
+                return campus
+            })
+
+            return { ...state, data: campuses, selectedCampus: { ...state.selectedCampus, ...action.campus } }
         default:
             return state
     }

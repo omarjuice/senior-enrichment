@@ -1,5 +1,5 @@
-import {createStore, applyMiddleware} from 'redux'
-import {composeWithDevTools} from 'redux-devtools-extension'
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import axios from 'axios'
 import rootReducer from './reducers'
 import loggingMiddleware from 'redux-logger' // https://github.com/evgenyrodionov/redux-logger
@@ -10,7 +10,7 @@ export default createStore(
   composeWithDevTools(applyMiddleware(
     // `withExtraArgument` gives us access to axios in our async action creators!
     // https://github.com/reduxjs/redux-thunk#injecting-a-custom-argument
-    thunkMiddleware.withExtraArgument({axios}),
-    loggingMiddleware
+    thunkMiddleware.withExtraArgument({ axios }),
+    // loggingMiddleware
   ))
 )

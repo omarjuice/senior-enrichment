@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleCampus } from '../actions/index';
 import StudentCard from './StudentCard';
+import EditCampus from './EditCampus';
 
 class SingleCampus extends Component {
     componentDidMount() {
@@ -38,8 +39,8 @@ class SingleCampus extends Component {
                         </div>
                     </div>
                 }
-
             </div>
+            <EditCampus id={id} initialValues={{ name, address, description, imageUrl }} />
             <div className="column is-full has-text-centered">{students ? <h1 className="title is-4">Students</h1> : null}</div>
             {
                 students && students.length ? students.map(student => {
