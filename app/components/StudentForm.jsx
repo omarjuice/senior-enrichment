@@ -39,15 +39,25 @@ class StudentForm extends Component {
     }
     render() {
         return (
+
             <form className="form has-text-centered" onSubmit={this.props.handleSubmit((formValues) => this.props.onSubmit(this.transformValues(formValues)))} >
-                <Field component={this.renderInput} name="firstName" label="firstName" />
-                <Field component={this.renderInput} name="lastName" label="lastName" />
-                <Field component={this.renderInput} name="email" label="email" type="email" />
-                <Field component={this.renderInput} name="gpa" label="gpa" type="number" min={0} max={4} step={.1} />
-                <Field component={this.renderInput} name="imageUrl" label="imageUrl" />
-                <Field component={this.renderInput} name="campusId" label="campus" type="number" min={1} />
-                <button className="button is-success">Submit</button>
+                <div className="columns is-multiline is-centered">
+                    <div className="column is-half">
+                        <Field component={this.renderInput} name="firstName" label="first name:" />
+                        <Field component={this.renderInput} name="lastName" label="last name:" />
+                        <Field component={this.renderInput} name="email" label="email" type="email" />
+                    </div>
+                    <div className="column is-half">
+                        <Field component={this.renderInput} name="gpa" label="gpa" type="number" min={0} max={4} step={.1} />
+                        <Field component={this.renderInput} name="imageUrl" label="image url:" />
+                        <Field component={this.renderInput} name="campusId" label="campus" type="number" min={1} />
+                    </div>
+                    <div className="column has-text-centered">
+                        <button className="button is-success">Submit</button>
+                    </div>
+                </div>
             </form>
+
         );
     }
 }

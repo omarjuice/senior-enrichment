@@ -33,10 +33,10 @@ class CampusForm extends Component {
     render() {
         return (
             <form className="form has-text-centered" onSubmit={this.props.handleSubmit((formValues) => this.props.onSubmit(formValues))} >
-                <Field component={this.renderInput} name="name" label="name" />
-                <Field component={this.renderInput} name="address" label="address" />
-                <Field component={this.renderInput} name="description" label="description" />
-                <Field component={this.renderInput} name="imageUrl" label="imageUrl" />
+                <Field component={this.renderInput} name="name" label="name:" />
+                <Field component={this.renderInput} name="address" label="address:" />
+                <Field component={this.renderInput} name="description" label="description:" />
+                <Field component={this.renderInput} name="imageUrl" label="image URL:" />
                 <button className="button is-success">Submit</button>
             </form>
         );
