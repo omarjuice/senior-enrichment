@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setModal, deleteCampus } from '../actions/';
+import { popIn } from '../animations';
 class CampusCard extends Component {
     state = {
         hovered: false
+    }
+    componentDidMount() {
+        this.props.animate ? popIn('.campus-' + this.props.id) : null
     }
     handleClick() {
         const confirmationCallback = function (confirmation) {
@@ -21,7 +25,7 @@ class CampusCard extends Component {
         return (<>
             {this.props.wayPoint}
             <div className="column is-one-third-desktop is-half-tablet is-full-mobile">
-                <div className="card has-background-white-bis"
+                <div className={`card has-background-white-bis ${'campus-' + id}`}
                     onMouseOver={() => this.setState({ hovered: true })}
                     onMouseLeave={() => this.setState({ hovered: false })}
                     onClick={() => this.setState({ hovered: true })}

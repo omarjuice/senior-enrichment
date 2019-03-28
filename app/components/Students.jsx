@@ -16,22 +16,13 @@ class Students extends Component {
                 {!students.data.length && loading && <i className="fas fa-circle-notch fa-spin fa-2x"></i>}
                 <div className="columns is-multiline is-tablet">
                     {students.data.map((student, i) => {
-                        return <StudentCard key={student.id} {...student} wayPoint={
+                        return <StudentCard animate={i > students.offset - 7} key={student.id} {...student} wayPoint={
                             students.offset && i === students.offset - 1 &&
                             <Waypoint onEnter={() => {
                                 this.props.getStudents(students.offset, 6)
                             }} />
                         } />
                     })}
-
-                    <style jsx>{`
-                    .fetch-more{
-                        display: flex;
-                        height: 20vh;
-                        justify-content: center;
-                        align-items: center
-                    }
-                    `}</style>
                 </div>
             </>
         );

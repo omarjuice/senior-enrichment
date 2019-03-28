@@ -16,7 +16,7 @@ class Campuses extends Component {
                 {!campuses.data.length && loading && <i className="fas fa-circle-notch fa-spin fa-2x"></i>}
                 <div className="columns is-multiline">
                     {campuses.data.map((campus, i) => {
-                        return <CampusCard key={campus.id || i + 1} {...campus}
+                        return <CampusCard animate={i > campuses.offset - 7} key={campus.id || i + 1} {...campus}
                             wayPoint={
                                 campuses.offset && i === campuses.offset - 1 &&
                                 <Waypoint onEnter={() => {
