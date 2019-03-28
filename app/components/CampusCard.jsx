@@ -15,7 +15,8 @@ class CampusCard extends Component {
     }
     render() {
         const { imageUrl, name, description, address, id, setModal, disableDelete } = this.props
-        return (
+        return (<>
+            {this.props.wayPoint}
             <div className="column is-one-third-desktop is-half-tablet">
                 <div className="card">
                     <div className="card-content">
@@ -39,7 +40,10 @@ class CampusCard extends Component {
                 <style jsx>{`
                     .card{
                         height: 20vh;
-                        overflow: scroll;
+                        overflow: hidden;
+                    }
+                    .card * {
+                        overflow: hidden !important;
                     }
                     .card-content{
                         height: 100%;
@@ -49,9 +53,10 @@ class CampusCard extends Component {
                     .media{
                         width: 100%
                     }
-                    .card::-webkit-scrollbar { width: 0 !important }
+                    .card::-webkit-scrollbar { display: none }
                     `}</style>
             </div>
+        </>
         );
     }
 }

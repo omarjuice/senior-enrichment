@@ -30,14 +30,14 @@ class Navbar extends Component {
                     <div id="navbarBasicExample" className={`navbar-menu ${this.state.menu && 'is-active'}`}>
                         <div className="navbar-start">
                             <p className="navbar-item">
-                                <Link to="/campuses">
+                                <Link to="/campuses" onClick={this.toggleMenu}>
                                     <span className="has-text-dark">
                                         Campuses
                                     </span>
                                 </Link>
                             </p>
                             <p className="navbar-item">
-                                <Link to="/students">
+                                <Link to="/students" onClick={this.toggleMenu}>
                                     <span className="has-text-dark">
                                         Students
                                     </span>

@@ -8,33 +8,24 @@ class Campuses extends Component {
         if (this.props.campuses.data.length < 1) {
             this.props.getCampuses(0, 12)
         }
-
     }
     render() {
         const { campuses, loading } = this.props
         return (
-            <>
+            <div>
                 {!campuses.data.length && loading && <i className="fas fa-circle-notch fa-spin fa-2x"></i>}
                 <div className="columns is-multiline">
                     {campuses.data.map((campus, i) => {
-                        return <CampusCard key={campus.id || i + 1} {...campus} />
+                        return <CampusCard key={campus.id || i + 1} {...campus}
+                            wayPoint={
+                                campuses.offset && i === campuses.offset - 1 &&
+                                <Waypoint onEnter={() => {
+                                    console.log('ENTER');
+                                    this.props.getCampuses(campuses.offset, 6)
+                                }} />} />
                     })}
-                    {campuses.offset ?
-                        <Waypoint onEnter={() => {
-                            console.log('WAYPOINT')
-                            this.props.getCampuses(campuses.offset, 6)
-                        }} />
-                        : ''}
-                    <style jsx>{`
-                    .fetch-more{
-                        display: flex;
-                        height: 20vh;
-                        justify-content: center;
-                        align-items: center
-                    }
-                    `}</style>
                 </div>
-            </>
+            </div>
         );
     }
 }
