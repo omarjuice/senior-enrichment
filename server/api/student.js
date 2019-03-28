@@ -18,6 +18,21 @@ router.get('/', ({ query: { offset = 0, limit = 5 } }, res, next) => {
         next(err)
     })
 })
+router.get('/recent', (req, res, next) => {
+    Student.findAll({
+        order: [
+            ['id', 'DESC']
+        ],
+        limit: 5
+    }).then(students => {
+        res.send(students)
+    }).catch(e => {
+        console.log(e)
+        const err = new Error('There was an error')
+        err.status(404)
+        next(err)
+    })
+})
 router.get('/:id', ({ params: { id } }, res, next) => {
     Student.findById(Number(id), {
         include: [{

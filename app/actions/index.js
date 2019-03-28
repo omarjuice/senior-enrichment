@@ -127,6 +127,30 @@ export const updateStudent = (id, formValues, campusWasUpdated) => (dispatch, _,
             dispatch(actions.loading(false))
         })
 }
+export const getRecentCampuses = () => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.get('/api/campuses/recent')
+        .then(({ data }) => {
+            dispatch(actions.recentCampuses(data))
+            dispatch(actions.loading(false))
+        }).catch(e => {
+            console.log(e)
+            dispatch(actions.loading(false))
+            dispatch(actions.error(true, 'Could not get the campuses'))
+        })
+}
+export const getRecentStudents = () => (dispatch, _, { axios }) => {
+    dispatch(actions.loading(true))
+    axios.get('/api/students/recent')
+        .then(({ data }) => {
+            dispatch(actions.recentStudents(data))
+            dispatch(actions.loading(false))
+        }).catch(e => {
+            console.log(e)
+            dispatch(actions.loading(false))
+            dispatch(actions.error(true, 'Could not get the students'))
+        })
+}
 export const setModal = (active, message, confirmationCallback) => actions.modal(active, message, confirmationCallback)
 
 export const setError = (exists, message) => actions.error(exists, message)

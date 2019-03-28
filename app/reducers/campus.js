@@ -1,9 +1,10 @@
-import { CAMPUSES, SINGLE_CAMPUS, DELETE_CAMPUS, ADD_CAMPUS, UPDATE_CAMPUS } from '../actions/types';
+import { CAMPUSES, SINGLE_CAMPUS, DELETE_CAMPUS, ADD_CAMPUS, UPDATE_CAMPUS, RECENT_CAMPUSES } from '../actions/types';
 
 const initialState = {
     offset: 0,
     data: [],
-    selectedCampus: {}
+    selectedCampus: {},
+    recent: []
 }
 
 export default (state = initialState, action) => {
@@ -21,7 +22,11 @@ export default (state = initialState, action) => {
                 }) : [...state.data, action.campus].sort((a, b) => a.id > b.id)
             return { ...state, data, selectedCampus: action.campus }
         case DELETE_CAMPUS:
-            return { ...state, data: state.data.filter(({ id }) => id !== action.id) };
+            return {
+                ...state,
+                data: state.data.filter(({ id }) => id !== action.id),
+                recent: state.recent.filter(({ id }) => id !== action.id)
+            };
         case ADD_CAMPUS:
             return { ...state, selectedCampus: action.campus };
         case UPDATE_CAMPUS:
@@ -31,8 +36,9 @@ export default (state = initialState, action) => {
                 }
                 return campus
             })
-
-            return { ...state, data: campuses, selectedCampus: { ...state.selectedCampus, ...action.campus } }
+            return { ...state, data: campuses, selectedCampus: { ...state.selectedCampus, ...action.campus } };
+        case RECENT_CAMPUSES:
+            return { ...state, recent: action.campuses }
         default:
             return state
     }

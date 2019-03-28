@@ -1,9 +1,10 @@
-import { STUDENTS, SINGLE_STUDENT, DELETE_STUDENT, ADD_STUDENT, UPDATE_STUDENT } from '../actions/types';
+import { STUDENTS, SINGLE_STUDENT, DELETE_STUDENT, ADD_STUDENT, UPDATE_STUDENT, RECENT_STUDENTS } from '../actions/types';
 const initialState = {
     offset: 0,
     data: ([]
     ),
-    selectedStudent: {}
+    selectedStudent: {},
+    recent: []
 }
 
 
@@ -23,7 +24,11 @@ export default (state = initialState, action) => {
                 }) : [...state.data, action.student].sort((a, b) => a.id > b.id)
             return { ...state, data, selectedStudent: action.student }
         case DELETE_STUDENT:
-            return { ...state, data: state.data.filter(({ id }) => id !== action.id) };
+            return {
+                ...state,
+                data: state.data.filter(({ id }) => id !== action.id),
+                recent: state.recent.filter(({ id }) => id !== action.id)
+            };
         case ADD_STUDENT:
             return { ...state, selectedStudent: action.student };
         case UPDATE_STUDENT:
@@ -33,7 +38,9 @@ export default (state = initialState, action) => {
                 }
                 return student
             })
-            return { ...state, data: students, selectedStudent: { ...state.selectedStudent, ...action.student } }
+            return { ...state, data: students, selectedStudent: { ...state.selectedStudent, ...action.student } };
+        case RECENT_STUDENTS:
+            return { ...state, recent: action.students }
         default:
             return state
     }

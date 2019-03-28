@@ -11,7 +11,9 @@ import {
     ADD_CAMPUS,
     ADD_STUDENT,
     UPDATE_CAMPUS,
-    UPDATE_STUDENT
+    UPDATE_STUDENT,
+    RECENT_CAMPUSES,
+    RECENT_STUDENTS
 } from './types'
 
 export default {
@@ -69,5 +71,13 @@ export default {
     updateStudent: student => ({
         type: UPDATE_STUDENT,
         student
+    }),
+    recentCampuses: campuses => ({
+        type: RECENT_CAMPUSES,
+        campuses
+    }),
+    recentStudents: students => ({
+        type: RECENT_STUDENTS,
+        students
     })
 }
